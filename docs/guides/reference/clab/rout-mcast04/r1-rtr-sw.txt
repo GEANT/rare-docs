@@ -1,0 +1,16 @@
+    hostname r1
+    vrf def v1
+     rd 1:1
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.1 255.255.255.252
+     ipv6 addr 1234:1::1 ffff:ffff::
+     mpls ena
+     mpls ldp4
+     ipv4 multi mldp
+     mpls ldp6
+     ipv6 multi mldp
+     exit
+    ipv4 route v1 0.0.0.0 0.0.0.0 1.1.1.2
+    ipv6 route v1 :: :: 1234:1::2

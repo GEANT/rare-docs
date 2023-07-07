@@ -1,0 +1,19 @@
+name: intop8-ldp01
+
+topology:
+  nodes:
+    r1:
+      kind: rare
+      image: ghcr.io/rare-freertr/freertr-containerlab:latest
+    r2:
+      kind: linux
+      image: <put your frr image link here>
+      binds:
+        - r2/daemons:/etc/frr/daemons
+        - r2/frr.conf:/etc/frr/frr.conf
+    r3:
+      kind: rare
+      image: ghcr.io/rare-freertr/freertr-containerlab:latest
+  links:
+    - endpoints: ["r1:eth1","r2:eth1"]
+    - endpoints: ["r2:eth2","r3:eth1"]

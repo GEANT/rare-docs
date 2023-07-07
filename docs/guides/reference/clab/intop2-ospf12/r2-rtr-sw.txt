@@ -1,0 +1,32 @@
+    hostname r2
+    interface loopback0
+     ipv4 addr 2.2.2.2 255.255.255.255
+     ipv6 addr 4321::2/128
+     exit
+    interface gigabit0/0/0/0
+     ipv4 address 1.1.1.2 255.255.255.0
+     ipv6 enable
+     no shutdown
+     exit
+    interface gigabit0/0/0/1
+     ipv4 address 1.1.2.2 255.255.255.0
+     ipv6 enable
+     no shutdown
+     exit
+    router ospf 1
+     redistribute connected
+     mpls traffic-eng router-id Loopback0
+     area 0
+      segment-routing forwarding mpls
+      mpls traffic-eng
+      segment-routing mpls
+      interface Loopback0
+       passive enable
+       prefix-sid index 3
+      interface gigabit0/0/0/0 network point-to-point
+      interface gigabit0/0/0/1 network point-to-point
+    router ospfv3 1
+     redistribute connected
+     area 0
+      interface gigabit0/0/0/0 network point-to-point
+      interface gigabit0/0/0/1 network point-to-point

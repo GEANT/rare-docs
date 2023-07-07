@@ -1,0 +1,40 @@
+    hostname r3
+    vrf def v1
+     rd 1:1
+     label-mode per-prefix
+     exit
+    int lo0
+     vrf for v1
+     ipv4 addr 3.3.3.3 255.255.255.255
+     ipv6 addr 3333::3 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    proxy-profile p1
+     vrf v1
+     source lo0
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.6 255.255.255.252
+     ipv6 addr 1234:2::2 ffff:ffff::
+     mpls enable
+     mpls ldp4
+     mpls ldp6
+     exit
+    bridge 1
+     exit
+    int bvi1
+     vrf for v1
+     ipv4 addr 2.2.2.3 255.255.255.0
+     ipv6 addr 4321::3 ffff:ffff::
+     exit
+    ipv4 route v1 3.3.3.1 255.255.255.255 1.1.1.5
+    ipv6 route v1 3333::1 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff 1234:2::1
+    vpdn eompls
+     bridge-gr 1
+     proxy p1
+     target 3.3.3.1
+     mtu 1500
+     vcid 1234
+     pwtype eth
+     protocol pweompls
+     exit

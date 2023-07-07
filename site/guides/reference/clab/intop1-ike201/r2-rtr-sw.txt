@@ -1,0 +1,44 @@
+    hostname r2
+    ip routing
+    ipv6 unicast-routing
+    interface gigabit1
+     ip address 1.1.1.2 255.255.255.0
+     ipv6 address 1234::2/64
+     no shutdown
+     exit
+    crypto ikev2 proposal pr1
+     encryption des
+     integrity md5
+     group 1
+     exit
+    crypto ikev2 policy pl1
+     proposal pr1
+     exit
+    crypto ikev2 keyring kr1
+     peer p1
+      address 1.1.1.1
+      pre-shared-key tester
+     exit
+    crypto ikev2 profile pr1
+     match identity remote address 1.1.1.1 255.255.255.255
+     authentication local pre-share
+     authentication remote pre-share
+     lifetime 3600
+     keyring local kr1
+     exit
+    crypto ipsec transform-set ts1 esp-des esp-md5-hmac
+     mode tunnel
+     exit
+    crypto ipsec profile pr1
+     set security-association lifetime seconds 3600
+     set security-association lifetime kilobytes 65536
+     set transform-set ts1
+     set ikev2-profile pr1
+     exit
+    interface tunnel1
+     ip address 2.2.2.2 255.255.255.0
+     tunnel source gigabit1
+     tunnel destination 1.1.1.1
+     tunnel mode ipsec ipv4
+     tunnel protection ipsec profile pr1
+     exit

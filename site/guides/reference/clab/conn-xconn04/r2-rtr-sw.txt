@@ -1,0 +1,17 @@
+    hostname r2
+    int ser1
+     enc framerelay
+     framerelay lmi ansi
+     framerelay dlci 123
+     framerelay mode dce
+     exit
+    int ser2
+     enc framerelay
+     framerelay lmi ansi
+     framerelay dlci 123
+     framerelay mode dce
+     exit
+    connect con
+     side1 ser1
+     side2 ser2
+     exit

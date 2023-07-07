@@ -1,0 +1,16 @@
+    hostname r1
+    vrf def v1
+     rd 1:1
+     exit
+    crypto ipsec ips
+     group 02
+     cipher blowfish
+     hash md5
+     key tester
+     exit
+    int eth1
+     vrf for v1
+     macsec ips
+     ipv4 addr 1.1.1.1 255.255.255.0
+     ipv6 addr 1234::1 ffff::
+     exit

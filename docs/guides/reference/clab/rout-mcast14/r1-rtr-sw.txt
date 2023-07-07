@@ -1,0 +1,76 @@
+    hostname r1
+    vrf def v1
+     rd 1:1
+     label-mode per-prefix
+     exit
+    router lsrp4 1
+     vrf v1
+     router 4.4.4.1
+     bier 256 10 1
+     exit
+    router lsrp6 1
+     vrf v1
+     router 6.6.6.1
+     bier 256 10 1
+     exit
+    int lo1
+     vrf for v1
+     ipv4 addr 2.2.2.1 255.255.255.255
+     ipv6 addr 4321::1 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     router lsrp4 1 ena
+     router lsrp6 1 ena
+     ipv4 pim ena
+     ipv6 pim ena
+     ipv4 pim join lo1
+     ipv6 pim join lo1
+     ipv4 pim bier 1
+     ipv6 pim bier 1
+     exit
+    int lo2
+     vrf for v1
+     ipv4 addr 2.2.2.11 255.255.255.255
+     ipv6 addr 4321::11 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.1 255.255.255.0
+     ipv6 addr 1234::1 ffff::
+     mpls enable
+     mpls ldp4
+     mpls ldp6
+     router lsrp4 1 ena
+     router lsrp6 1 ena
+     ipv4 pim ena
+     ipv6 pim ena
+     ipv4 pim join lo1
+     ipv6 pim join lo1
+     ipv4 pim bier 1
+     ipv6 pim bier 1
+     exit
+    int eth2
+     vrf for v1
+     ipv4 addr 4.4.4.2 255.255.255.252
+     ipv6 addr 4444::2 ffff:ffff::
+     ipv4 pim ena
+     ipv6 pim ena
+     exit
+    router bgp4 1
+     vrf v1
+     address uni multi
+     local-as 1
+     router-id 4.4.4.1
+     neigh 2.2.2.4 remote-as 1
+     neigh 2.2.2.4 update lo1
+     red conn
+     red stat
+     exit
+    router bgp6 1
+     vrf v1
+     address uni multi
+     local-as 1
+     router-id 6.6.6.1
+     neigh 4321::4 remote-as 1
+     neigh 4321::4 update lo1
+     red conn
+     red stat
+     exit

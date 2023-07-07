@@ -1,0 +1,30 @@
+    hostname r2
+    vrf def v1
+     rd 1:1
+     exit
+    bridge 1
+     mac-learn
+     exit
+    bridge 2
+     mac-learn
+     exit
+    bridge 3
+     mac-learn
+     exit
+    int eth1
+     bridge-gr 1
+     exit
+    int eth2
+     bridge-gr 2
+     exit
+    int bvi1
+     bridge-gr 3
+     exit
+    int bvi2
+     bridge-gr 3
+     exit 
+    int bvi3
+     vrf for v1
+     ipv4 addr 1.1.1.2 255.255.255.0
+     ipv6 addr 1234::2 ffff::
+     exit

@@ -1,0 +1,12 @@
+    hostname r2
+    bridge 1
+     mac-learn
+     block-unicast
+     block-multicast
+     exit
+    int eth1
+     bridge-gr 1
+     exit
+    int eth2
+     bridge-gr 1
+     exit

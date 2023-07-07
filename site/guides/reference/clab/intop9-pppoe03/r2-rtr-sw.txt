@@ -1,0 +1,27 @@
+    hostname r2
+    set interfaces ge-0/0/0.0 encapsulation ppp-over-ether
+    set interfaces ge-0/0/1.0 encapsulation ppp-over-ether
+    set interfaces pp0.0 pppoe-options underlying-interface ge-0/0/0.0
+    set interfaces pp0.0 pppoe-options idle-timeout 0
+    set interfaces pp0.0 pppoe-options auto-reconnect 1
+    set interfaces pp0.0 pppoe-options client
+    set interfaces pp0.0 family inet address 1.1.1.2/24
+    set interfaces pp0.0 family inet6 address 1234::1:2/64
+    set interfaces pp0.0 family mpls
+    set interfaces pp0.1 pppoe-options underlying-interface ge-0/0/1.0
+    set interfaces pp0.1 pppoe-options idle-timeout 0
+    set interfaces pp0.1 pppoe-options auto-reconnect 1
+    set interfaces pp0.1 pppoe-options client
+    set interfaces pp0.1 family inet address 1.1.2.2/24
+    set interfaces pp0.1 family inet6 address 1234::2:2/64
+    set interfaces pp0.1 family mpls
+    set interfaces lo0.0 family inet address 2.2.2.2/32
+    set interfaces lo0.0 family inet6 address 4321::2/128
+    set protocols ldp interface pp0.0
+    set protocols ldp interface pp0.1
+    set protocols mpls interface pp0.0
+    set protocols mpls interface pp0.1
+    set routing-options rib inet.0 static route 2.2.2.1/32 next-hop 1.1.1.1
+    set routing-options rib inet.0 static route 2.2.2.3/32 next-hop 1.1.2.1
+    set routing-options rib inet6.0 static route 4321::1/128 next-hop 1234:1::1
+    set routing-options rib inet6.0 static route 4321::3/128 next-hop 1234:2::1

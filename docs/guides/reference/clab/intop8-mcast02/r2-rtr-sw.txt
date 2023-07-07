@@ -1,0 +1,17 @@
+    hostname r2
+    ip forwarding
+    ipv6 forwarding
+    interface ens3
+     ip address 1.1.1.2/24
+     ipv6 address 1234:1::2/64
+     ip pim
+     ipv6 pim
+     no shutdown
+     exit
+    interface ens4
+     ip address 1.1.2.2/24
+     ipv6 address 1234:2::2/64
+     ip pim
+     ipv6 pim
+     no shutdown
+     exit

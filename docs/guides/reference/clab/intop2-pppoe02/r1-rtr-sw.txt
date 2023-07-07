@@ -1,0 +1,30 @@
+    hostname r1
+    vrf def v1
+     rd 1:1
+     exit
+    int di1
+     enc ppp
+     vrf for v1
+     ipv4 addr 3.3.3.1 255.255.255.0
+     ipv6 addr fe80::1234 ffff::
+     ppp ip4cp local 0.0.0.0
+     ppp ip4cp open
+     ppp ip6cp open
+     ppp user usr
+     ppp pass pwd
+     exit
+    int eth1
+     vrf for v1
+     ipv4 address 2.2.2.2 255.255.255.0
+     exit
+    int eth1.123
+     p2poe client di1
+     exit
+    aaa userlist aaa
+     username usr password pwd
+     exit
+    server radius v1
+     authentication aaa
+     secret tester
+     vrf v1
+     exit

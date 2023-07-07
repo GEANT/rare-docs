@@ -1,0 +1,68 @@
+    hostname r1
+    vrf def v1
+     rd 1:1
+     exit
+    vrf def v2
+     rd 1:2
+     rt-both 1:2
+     exit
+    int lo1
+     vrf for v1
+     ipv4 addr 2.2.2.1 255.255.255.255
+     ipv6 addr 4321::1 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    bridge 1
+     mac-learn
+     exit
+    int eth1
+     bridge-gr 1
+     exit
+    int eth2
+     bridge-gr 1
+     exit
+    int eth3
+     bridge-gr 1
+     exit
+    int eth4
+     bridge-gr 1
+     exit
+    int bvi1
+     vrf for v1
+     ipv4 addr 1.1.1.1 255.255.255.0
+     ipv6 addr 1234::1 ffff::
+     exit
+    router blackhole4 1
+     vrf v2
+     exit
+    router blackhole6 1
+     vrf v2
+     exit
+    router bgp4 1
+     vrf v1
+     address vpnuni uni
+     local-as 1
+     router-id 4.4.4.1
+     neigh 1.1.1.5 remote-as 1
+     neigh 1.1.1.5 send-comm both
+     afi-vrf v2 ena
+     afi-vrf v2 red blackhole4 1
+     red conn
+     exit
+    router bgp6 1
+     vrf v1
+     address vpnuni uni
+     local-as 1
+     router-id 6.6.6.1
+     neigh 1234::5 remote-as 1
+     neigh 1234::5 send-comm both
+     afi-vrf v2 ena
+     afi-vrf v2 red blackhole6 1
+     red conn
+     exit
+    server telnet tel
+     vrf v1
+     access-subnet 2
+     access-blackhole4 1
+     access-blackhole6 1
+     port 666
+     exit

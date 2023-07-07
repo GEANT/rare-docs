@@ -1,0 +1,14 @@
+    hostname r2
+    policy-map p1
+     seq 10 act trans
+     exit
+    vrf def v1
+     rd 1:1
+     dapp4 p1
+     dapp6 p1
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.2 255.255.255.0
+     ipv6 addr 1234::2 ffff::
+     exit

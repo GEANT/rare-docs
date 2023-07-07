@@ -1,0 +1,46 @@
+    hostname r6
+    vrf def v1
+     rd 1:1
+     rt-both 1:2
+     exit
+    vrf def v2
+     rd 1:2
+     label-mode per-prefix
+     exit
+    router bgp4 2
+     vrf v2
+     no safe-ebgp
+     address vpnuni
+     local-as 3
+     router 4.4.4.6
+     neigh 1.1.1.17 remote-as 1
+     neigh 1.1.1.17 send-comm both
+     afi-vrf v1 ena
+     afi-vrf v1 red conn
+     exit
+    router bgp6 2
+     vrf v2
+     no safe-ebgp
+     address vpnuni
+     local-as 3
+     router 6.6.6.6
+     neigh 1234:5::1 remote-as 1
+     neigh 1234:5::1 send-comm both
+     afi-vrf v1 ena
+     afi-vrf v1 red conn
+     exit
+    int lo1
+     vrf for v1
+     ipv4 addr 2.2.2.6 255.255.255.255
+     ipv6 addr 4321::6 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    int eth1.11
+     vrf for v2
+     ipv4 addr 1.1.1.18 255.255.255.252
+     mpls enable
+     exit
+    int eth1.12
+     vrf for v2
+     ipv6 addr 1234:5::2 ffff:ffff::
+     mpls enable
+     exit

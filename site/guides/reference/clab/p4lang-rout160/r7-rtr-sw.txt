@@ -1,0 +1,45 @@
+    hostname r7
+    vrf def v1
+     rd 1:1
+     exit
+    router lsrp4 1
+     vrf v1
+     router 4.4.4.7
+     bier 256 10 7
+     red conn
+     exit
+    router lsrp6 1
+     vrf v1
+     router 6.6.6.7
+     bier 256 10 7
+     red conn
+     exit
+    int lo0
+     vrf for v1
+     ipv4 addr 2.2.2.107 255.255.255.255
+     ipv6 addr 4321::107 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     ipv4 pim ena
+     ipv6 pim ena
+     ipv4 pim join lo0
+     ipv6 pim join lo0
+     ipv4 pim bier 7
+     ipv6 pim bier 7
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.5.2 255.255.255.0
+     ipv6 addr 1234:5::2 ffff:ffff::
+     mpls enable
+     router lsrp4 1 ena
+     router lsrp6 1 ena
+     ipv4 pim ena
+     ipv6 pim ena
+     ipv4 pim join lo0
+     ipv6 pim join lo0
+     ipv4 pim bier 7
+     ipv6 pim bier 7
+     exit
+    ipv4 mroute v1 0.0.0.0 0.0.0.0 1.1.5.1
+    ipv6 mroute v1 :: :: 1234:5::1
+    ipv4 multi v1 join 232.2.2.2 2.2.2.103
+    ipv6 multi v1 join ff06::1 4321::103

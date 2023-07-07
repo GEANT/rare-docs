@@ -1,0 +1,12 @@
+name: crypt-skip01
+
+topology:
+  nodes:
+    r1:
+      kind: rare
+      image: ghcr.io/rare-freertr/freertr-containerlab:latest
+    r2:
+      kind: rare
+      image: ghcr.io/rare-freertr/freertr-containerlab:latest
+  links:
+    - endpoints: ["r1:ser1","r2:ser1"]

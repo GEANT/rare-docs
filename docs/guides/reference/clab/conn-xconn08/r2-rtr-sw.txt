@@ -1,0 +1,9 @@
+    hostname r2
+    int eth1
+     exit
+    int eth2
+     exit
+    connect con
+     side1 eth1
+     side2 eth2
+     exit

@@ -1,0 +1,52 @@
+    hostname r2
+    ip routing
+    ipv6 unicast-routing
+    mpls traffic-eng tunnels
+    no mpls traffic-eng signalling advertise implicit-null
+    mpls traffic-eng pcc peer 1.1.3.2
+    interface loopback0
+     ip addr 2.2.2.2 255.255.255.255
+     ipv6 addr 4321::2/128
+     exit
+    router ospf 1
+     mpls traffic-eng router-id Loopback0
+     mpls traffic-eng area 0
+     redistribute connected subnets
+     exit
+    ipv6 router ospf 1
+     redistribute connected
+     exit
+    interface gigabit1
+     ip address 1.1.1.2 255.255.255.0
+     ipv6 enable
+     ip ospf network point-to-point
+     ip ospf 1 area 0
+     ipv6 ospf network point-to-point
+     ipv6 ospf 1 area 0
+     ip rsvp bandwidth
+     mpls traffic-eng tunnels
+     no shutdown
+     exit
+    interface gigabit2
+     ip address 1.1.2.2 255.255.255.0
+     ipv6 enable
+     ip ospf network point-to-point
+     ip ospf 1 area 0
+     ipv6 ospf network point-to-point
+     ipv6 ospf 1 area 0
+     ip rsvp bandwidth
+     mpls traffic-eng tunnels
+     no shutdown
+     exit
+    interface Tunnel1
+     ip address 3.3.3.2 255.255.255.252
+     tunnel mode mpls traffic-eng
+     tunnel destination 2.2.2.1
+     tunnel mpls traffic-eng path-option 1 dynamic pce
+     exit
+    interface Tunnel2
+     ip address 3.3.3.6 255.255.255.252
+     tunnel mode mpls traffic-eng
+     tunnel destination 2.2.2.3
+     tunnel mpls traffic-eng path-option 1 dynamic pce
+     exit

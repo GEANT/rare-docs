@@ -1,0 +1,38 @@
+    hostname r2
+    vrf def v1
+     rd 1:1
+     exit
+    proxy-profile p1
+     vrf v1
+     exit
+    int eth1
+     exit
+    int eth2
+     vrf for v1
+     ipv4 addr 3.3.3.2 255.255.255.252
+     exit
+    int eth3
+     vrf for v1
+     ipv4 addr 3.3.3.6 255.255.255.252
+     exit
+    hair 1
+     exit
+    hair 2
+     exit
+    serv pktmux pm
+     cpu eth1
+     data hair11 1
+     data hair21 9
+     control p1 3.3.3.1 9080
+     control p1 3.3.3.5 9080
+     exit
+    int hair12
+     vrf for v1
+     ipv4 addr 1.1.1.2 255.255.255.0
+     ipv6 addr 1234::2 ffff::
+     exit
+    int hair22
+     vrf for v1
+     ipv4 addr 2.2.2.2 255.255.255.0
+     ipv6 addr 4321::2 ffff::
+     exit

@@ -1,0 +1,33 @@
+    hostname r2
+    access-list a4
+     permit 1 any all any all
+     exit
+    access-list a6
+     permit 58 any all any all
+     exit
+    policy-map p4
+     seq 10 act drop
+      match access-group a4
+     exit
+    policy-map p6
+     seq 10 act drop
+      match access-group a6
+     exit
+    vrf def v1
+     rd 1:1
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.2 255.255.255.0
+     ipv6 addr 1234::2 ffff::
+     exit
+    router bgp4 1
+     vrf v1
+     flowspec-install
+     flowspec-advert p4
+     exit
+    router bgp6 1
+     vrf v1
+     flowspec-install
+     flowspec-advert p6
+     exit

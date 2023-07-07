@@ -1,0 +1,17 @@
+    hostname r1
+    vrf def v1
+     rd 1:1
+     exit
+    policy-map p1
+     seq 10 act drop
+      match ttl 100-150
+     seq 20 act trans
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.1 255.255.255.0
+     ipv6 addr 1234::1 ffff::
+     service-policy-in p1
+     exit
+    ipv4 route v1 0.0.0.0 0.0.0.0 1.1.1.2
+    ipv6 route v1 :: :: 1234::2

@@ -1,0 +1,32 @@
+    hostname r2
+    ip forwarding
+    ipv6 forwarding
+    interface lo
+     ip addr 2.2.2.2/32
+     ipv6 addr 4444::2/128
+     exit
+    interface ens3
+     ip address 1.1.1.2/24
+     no shutdown
+     exit
+    interface ens4
+     ip address 1.1.2.2/24
+     no shutdown
+     exit
+    ip route 2.2.2.1 255.255.255.255 1.1.1.1
+    ipv6 route 4321::202:201/128 fe80::1 ens3
+    ip route 2.2.2.3 255.255.255.255 1.1.2.1
+    ipv6 route 4321::202:203/128 fe80::4 ens4
+    mpls ldp
+     address-family ipv4
+      discovery transport-address 2.2.2.2
+      ttl-security disable
+      interface ens3
+      interface ens4
+      exit
+     address-family ipv6
+      discovery transport-address 4444::2
+      ttl-security disable
+      interface ens3
+      interface ens4
+      exit

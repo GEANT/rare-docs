@@ -1,0 +1,13 @@
+    hostname r3
+    bridge 1
+     exit
+    int eth1
+     bridge-gr 1
+     bridge-tcp-mss ipv4out 1280
+     bridge-tcp-mss ipv6out 1280
+     exit
+    int eth2
+     bridge-gr 1
+     bridge-tcp-mss ipv4out 1280
+     bridge-tcp-mss ipv6out 1280
+     exit

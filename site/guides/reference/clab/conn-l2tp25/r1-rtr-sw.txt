@@ -1,0 +1,27 @@
+    hostname r1
+    vrf def v1
+     rd 1:1
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.1 255.255.255.0
+     ipv6 addr 1234::1 ffff::
+     exit
+    int lo0
+     vrf for v1
+     ipv4 addr 4.4.4.4 255.255.255.255
+     exit
+    ipv4 pool p4 2.2.2.1 0.0.0.1 254
+    int di1
+     enc ppp
+     vrf for v1
+     ipv4 addr 2.2.2.0 255.255.255.255
+     ppp ip4cp local 2.2.2.0
+     ipv4 pool p4
+     ppp ip4cp open
+     exit
+    server l2tp3 l2tp
+     clone di1
+     password tester
+     vrf v1
+     exit

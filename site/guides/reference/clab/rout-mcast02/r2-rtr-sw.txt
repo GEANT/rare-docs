@@ -1,0 +1,25 @@
+    hostname r2
+    vrf def v1
+     rd 1:1
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.2 255.255.255.252
+     ipv6 addr 1234:1::2 ffff:ffff::
+     ipv4 pim ena
+     ipv6 pim ena
+     exit
+    int eth2
+     vrf for v1
+     ipv4 addr 1.1.1.6 255.255.255.252
+     ipv6 addr 1234:2::2 ffff:ffff::
+     ipv4 pim ena
+     ipv6 pim ena
+     exit
+    int eth3
+     vrf for v1
+     ipv4 addr 1.1.1.10 255.255.255.252
+     ipv6 addr 1234:3::2 ffff:ffff::
+     ipv4 pim ena
+     ipv6 pim ena
+     exit

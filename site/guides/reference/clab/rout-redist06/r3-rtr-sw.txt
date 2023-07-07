@@ -1,0 +1,56 @@
+    hostname r3
+    vrf def v1
+     rd 1:1
+     label-mode per-prefix
+     exit
+    vrf def v2
+     rd 1:2
+     rt-both 1:2
+     exit
+    int lo1
+     vrf for v1
+     ipv4 addr 2.2.2.3 255.255.255.255
+     ipv6 addr 4321::3 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    router bgp4 1
+     vrf v1
+     address vpnuni ovpnuni
+     local-as 1
+     router 4.4.4.3
+     neigh 2.2.2.2 remote-as 1
+     neigh 2.2.2.2 update lo1
+     neigh 2.2.2.2 send-comm both
+     afi-vrf v2 ena
+     afi-vrf v2 red conn
+     afi-ovrf v2 ena
+     afi-ovrf v2 red conn
+     exit
+    router bgp6 1
+     vrf v1
+     address vpnuni ovpnuni
+     local-as 1
+     router 6.6.6.3
+     neigh 4321::2 remote-as 1
+     neigh 4321::2 update lo1
+     neigh 4321::2 send-comm both
+     exit
+    int lo2
+     vrf for v2
+     ipv4 addr 2.2.2.13 255.255.255.255
+     ipv6 addr 4321::13 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    int lo3
+     vrf for v2
+     ipv4 addr 2.2.2.23 255.255.255.255
+     ipv6 addr 4321::23 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.6 255.255.255.252
+     ipv6 addr 1234:2::2 ffff:ffff::
+     mpls enable
+     mpls ldp4
+     mpls ldp6
+     exit
+    ipv4 route v1 2.2.2.2 255.255.255.255 1.1.1.5
+    ipv6 route v1 4321::2 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff 1234:2::1

@@ -1,0 +1,40 @@
+    hostname r2
+    ip forwarding
+    ipv6 forwarding
+    interface lo
+     ip addr 2.2.2.2/32
+     ip addr 2.2.2.3/32
+     ip addr 2.2.2.4/32
+     ipv6 addr 4321::2/128
+     ipv6 addr 4321::3/128
+     ipv6 addr 4321::4/128
+     exit
+    interface ens3
+     ip address 1.1.1.2/24
+     ipv6 address 1234::2/64
+     no shutdown
+     exit
+    ip prefix-list pl1 seq 5 permit 2.2.2.3/32
+    route-map rm1 permit 10
+     match ip address prefix-list pl1
+     set origin incomplete
+    route-map rm1 permit 20
+     set origin igp
+    ipv6 prefix-list pl2 seq 5 permit 4321::3/128
+    route-map rm2 permit 10
+     match ipv6 address prefix-list pl2
+     set origin incomplete
+    route-map rm2 permit 20
+     set origin igp
+    router bgp 1
+     neighbor 1.1.1.1 remote-as 1
+     neighbor 1234::1 remote-as 1
+     address-family ipv4 unicast
+      neighbor 1.1.1.1 activate
+      no neighbor 1234::1 activate
+      redistribute connected route-map rm1
+     address-family ipv6 unicast
+      no neighbor 1.1.1.1 activate
+      neighbor 1234::1 activate
+      redistribute connected route-map rm2
+     exit

@@ -1,0 +1,33 @@
+    hostname r6
+    vrf def v1
+     rd 1:1
+     exit
+    router isis4 1
+     vrf v1
+     net 33.4444.0000.6666.00
+     is-type level2
+     no metric-wide
+     red conn
+     exit
+    router isis6 1
+     vrf v1
+     net 33.6666.0000.6666.00
+     is-type level2
+     no metric-wide
+     red conn
+     exit
+    int lo1
+     vrf for v1
+     ipv4 addr 2.2.2.6 255.255.255.255
+     ipv6 addr 4321::6 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    int eth1.11
+     vrf for v1
+     ipv4 addr 1.1.1.18 255.255.255.252
+     router isis4 1 ena
+     exit
+    int eth1.12
+     vrf for v1
+     ipv6 addr 1234:5::2 ffff:ffff::
+     router isis6 1 ena
+     exit

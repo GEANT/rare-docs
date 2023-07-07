@@ -1,0 +1,27 @@
+    hostname r2
+    vrf def v1
+     rd 1:1
+     exit
+    bridge 1
+     mac-learn
+     block-unicast
+     exit
+    int eth1
+     bridge-gr 1
+     exit
+    int bvi1
+     vrf for v1
+     ipv4 addr 1.1.1.2 255.255.255.0
+     ipv4 hsrp address 1.1.1.254
+     ipv4 hsrp priority 120
+     ipv4 hsrp preempt
+     ipv6 addr 1234::2 ffff::
+     ipv6 hsrp address 1234::254
+     ipv6 hsrp priority 120
+     ipv6 hsrp preempt
+     exit
+    int lo0
+     vrf for v1
+     ipv4 addr 2.2.2.2 255.255.255.0
+     ipv6 addr 4321::2 ffff::
+     exit

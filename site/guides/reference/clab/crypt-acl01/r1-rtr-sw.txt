@@ -1,0 +1,19 @@
+    hostname r1
+    access-list test4
+     deny 1 any all any all
+     permit all any all any all
+     exit
+    access-list test6
+     deny 58 any all any all
+     permit all any all any all
+     exit
+    vrf def v1
+     rd 1:1
+     exit
+    int ser1
+     vrf for v1
+     ipv4 addr 1.1.1.1 255.255.255.252
+     ipv6 addr 1234::1 ffff:ffff::
+     ipv4 access-group-in test4
+     ipv6 access-group-in test6
+     exit

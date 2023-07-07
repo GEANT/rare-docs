@@ -1,0 +1,19 @@
+    hostname r3
+    vrf def v1
+     rd 1:1
+     exit
+    prefix-list p4
+     permit 0.0.0.0/0
+     exit
+    prefix-list p6
+     permit ::/0
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 3.3.3.3 255.255.255.128
+     ipv4 dhcp-client enable
+     ipv4 gateway-prefix p4
+     ipv6 addr 3333::3 ffff::
+     ipv6 dhcp-client enable
+     ipv6 gateway-prefix p6
+     exit

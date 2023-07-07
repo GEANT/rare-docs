@@ -1,0 +1,10 @@
+    hostname r3
+    int eth1.11
+     nsh ena
+     exit
+    int eth2
+     nsh ena
+     nsh xconn 3 255
+     exit
+    nsh 3 255 int eth1.11 0000.1111.2222
+    nsh 2 254 int eth2 0000.1111.2222 rawpack keephdr

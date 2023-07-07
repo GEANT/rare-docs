@@ -1,0 +1,28 @@
+    hostname r2
+    interface loopback0
+     ipv4 addr 2.2.2.2 255.255.255.255
+     ipv6 addr 4321::2/128
+     exit
+    interface gigabit0/0/0/0
+     ipv4 address 1.1.1.2 255.255.255.0
+     ipv6 address 1234::2/64
+     ipv6 enable
+     no shutdown
+     exit
+    interface gigabit0/0/0/1
+     l2transport
+     no shutdown
+     exit
+    mpls ldp
+     address-family ipv4
+     address-family ipv6
+     interface gigabit0/0/0/0
+      address-family ipv4
+      address-family ipv6
+    router static
+     address-family ipv4 unicast 2.2.2.1/32 1.1.1.1 gigabit0/0/0/0
+     address-family ipv6 unicast 4321::1/128 1234::1 gigabit0/0/0/0
+     exit
+    l2vpn xconnect group a p2p a
+     interface gigabit0/0/0/1
+     neighbor ipv4 2.2.2.1 pw-id 1234

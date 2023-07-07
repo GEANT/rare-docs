@@ -1,0 +1,20 @@
+    hostname r3
+    vrf def v1
+     rd 1:1
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.2.2 255.255.255.0
+     ipv6 addr 2345::2 ffff::
+     exit
+    dial-peer 1
+     match-calling .*
+     match-called .*
+     vrf v1
+     myname 99
+     target 1.1.2.1
+     port-local 5060
+     port-remote 0
+     protocol sip-list
+     direction out
+     exit

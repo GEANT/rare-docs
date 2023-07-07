@@ -1,0 +1,21 @@
+    hostname r2
+    interface loopback0
+     ipv4 addr 2.2.2.2 255.255.255.255
+     ipv6 addr 4321::2/128
+     exit
+    interface gigabit0/0/0/0
+     ipv4 address 1.1.1.2 255.255.255.0
+     ipv6 address 1234::2/64
+     no shutdown
+     exit
+    route-policy all
+     set eigrp-metric 1000 1 255 1 1500
+     pass
+     end-policy
+    router eigrp 1
+     address-family ipv4
+      redistribute connected route-policy all
+      interface gigabit0/0/0/0
+     address-family ipv6
+      redistribute connected route-policy all
+      interface gigabit0/0/0/0

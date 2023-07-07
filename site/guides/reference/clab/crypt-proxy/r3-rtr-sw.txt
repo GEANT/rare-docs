@@ -1,0 +1,17 @@
+    hostname r3
+    vrf def v1
+     rd 1:1
+     exit
+    int ser1
+     vrf for v1
+     ipv4 addr 2.2.2.3 255.255.255.0
+     ipv6 addr 4321::3 ffff::
+     exit
+    int lo0
+     vrf for v1
+     ipv4 addr 3.3.3.3 255.255.255.255
+     ipv6 addr 3333::3 ffff::
+     exit
+    server telnet telnet
+     vrf v1
+     exit

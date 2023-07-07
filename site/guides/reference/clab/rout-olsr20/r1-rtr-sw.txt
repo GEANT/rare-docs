@@ -1,0 +1,24 @@
+    hostname r1
+    vrf def v1
+     rd 1:1
+     exit
+    router olsr4 1
+     vrf v1
+     exit
+    router olsr6 1
+     vrf v1
+     exit
+    int lo0
+     vrf for v1
+     ipv4 addr 2.2.2.1 255.255.255.255
+     ipv6 addr 4321::1 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     router olsr4 1 ena
+     router olsr6 1 ena
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.1 255.255.255.252
+     ipv6 addr 1234:1::1 ffff:ffff::
+     router olsr4 1 ena
+     router olsr6 1 ena
+     exit

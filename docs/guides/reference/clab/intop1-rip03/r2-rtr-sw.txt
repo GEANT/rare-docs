@@ -1,0 +1,28 @@
+    hostname r2
+    ip routing
+    ipv6 unicast-routing
+    interface loopback0
+     ip addr 2.2.2.2 255.255.255.255
+     ipv6 addr 4321::2/128
+     exit
+    router rip
+     version 2
+     redistribute connected
+     no auto-summary
+     network 1.0.0.0
+     exit
+    ipv6 router rip 1
+     redistribute connected
+     exit
+    key chain kc
+     key 0
+      key-string tester
+     exit
+    interface gigabit1
+     ip address 1.1.1.2 255.255.255.0
+     ipv6 enable
+     ip rip authentication key-chain kc
+     ip rip authentication mode text
+     ipv6 rip 1 enable
+     no shutdown
+     exit

@@ -1,0 +1,47 @@
+    hostname r3
+    vrf def v1
+     rd 1:1
+     exit
+    router lsrp4 1
+     vrf v1
+     router 4.4.4.3
+     segrout 10 3
+     red conn
+     exit
+    router lsrp6 1
+     vrf v1
+     router 6.6.6.3
+     segrout 10 3
+     red conn
+     exit
+    int lo1
+     vrf for v1
+     ipv4 addr 2.2.2.3 255.255.255.255
+     ipv6 addr 4321::3 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.2.3 255.255.255.0
+     ipv6 addr 1235::3 ffff::
+     mpls enable
+     router lsrp4 1 ena
+     router lsrp6 1 ena
+     exit
+    int tun1
+     tun sou lo1
+     tun dest 2.2.2.1
+     tun vrf v1
+     tun key 4321
+     tun mod pweompls
+     vrf for v1
+     ipv4 addr 3.3.3.2 255.255.255.252
+     exit
+    int tun2
+     tun sou lo1
+     tun dest 4321::1
+     tun vrf v1
+     tun key 4321
+     tun mod pweompls
+     vrf for v1
+     ipv6 addr 4321::1112 ffff:ffff:ffff:ffff:ffff:ffff:ffff:fff0
+     exit

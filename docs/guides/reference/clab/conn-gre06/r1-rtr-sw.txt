@@ -1,0 +1,25 @@
+    hostname r1
+    vrf def v1
+     rd 1:1
+     exit
+    proxy-profile p1
+     vrf v1
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.1 255.255.255.0
+     ipv6 addr 1234::1 ffff::
+     exit
+    int di1
+     enc hdlc
+     vrf for v1
+     ipv4 addr 2.2.2.1 255.255.255.0
+     ipv6 addr 4321::1 ffff::
+     exit
+    vpdn pou
+     interface dialer1
+     proxy p1
+     target 1.1.1.2
+     vcid 1234
+     protocol greppp
+     exit

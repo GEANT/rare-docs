@@ -1,0 +1,42 @@
+    hostname r3
+    vrf def v1
+     rd 1:1
+     exit
+    route-map rm1
+     set metric 20
+     exit
+    router isis4 1
+     vrf v1
+     net 33.4444.0000.3333.00
+     afi-other enable
+     advertise 2.2.2.3/32 route-map rm1
+     advertise 2.2.2.222/32 route-map rm1
+     afi-other advertise 4321::3/128 route-map rm1
+     afi-other advertise 4321::222/128 route-map rm1
+     exit
+    int lo1
+     vrf for v1
+     ipv4 addr 2.2.2.3 255.255.255.255
+     ipv6 addr 4321::3 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    int lo2
+     vrf for v1
+     ipv4 addr 2.2.2.222 255.255.255.255
+     ipv6 addr 4321::222 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    int lo3
+     vrf for v1
+     ipv4 addr 2.2.2.103 255.255.255.255
+     ipv6 addr 4321::103 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    server telnet tel
+     vrf v1
+     port 666
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.6 255.255.255.252
+     ipv6 addr 1234:2::2 ffff:ffff::
+     router isis4 1 ena
+     router isis4 1 other-ena
+     exit

@@ -1,0 +1,23 @@
+    hostname r2
+    set interfaces ge-0/0/0.0 family inet address 1.1.1.2/24
+    set interfaces ge-0/0/0.0 family inet6
+    set interfaces ge-0/0/0.0 family mpls
+    set interfaces ge-0/0/1.0 family inet address 1.1.2.2/24
+    set interfaces ge-0/0/1.0 family inet6
+    set interfaces ge-0/0/1.0 family mpls
+    set interfaces lo0.0 family inet address 2.2.2.2/32
+    set interfaces lo0.0 family inet6 address 4321::2/128
+    set protocols mpls interface ge-0/0/0.0
+    set protocols mpls interface ge-0/0/1.0
+    set protocols ospf area 0 interface ge-0/0/0.0 interface-type p2p
+    set protocols ospf area 0 interface ge-0/0/1.0 interface-type p2p
+    set protocols ospf area 0 interface lo0.0
+    set protocols ospf area 0 bier-subdomain 0
+    set protocols ospf traffic-engineering shortcuts
+    set protocols ospf3 area 0 interface ge-0/0/0.0 interface-type p2p
+    set protocols ospf3 area 0 interface ge-0/0/1.0 interface-type p2p
+    set protocols ospf3 area 0 interface lo0.0
+    set protocols ospf3 area 0 bier-subdomain 0
+    set protocols ospf3 traffic-engineering shortcuts
+    set protocols bier sub-domain 0 bfr-id 3
+    set protocols bier sub-domain 0 encapsulation mpls bitmask-length 256 number-sets 4

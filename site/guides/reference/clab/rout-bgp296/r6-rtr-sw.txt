@@ -1,0 +1,12 @@
+    hostname r6
+    vrf def v1
+     rd 1:1
+     exit
+    route-map all
+     action permit
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.6 255.255.255.0
+     ipv6 addr 1234:1::6 ffff:ffff::
+     exit

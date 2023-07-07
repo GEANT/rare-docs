@@ -1,0 +1,24 @@
+    hostname r5
+    vrf def v1
+     rd 1:1
+     exit
+    proxy-profile p1
+     vrf v1
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.14 255.255.255.252
+     ipv6 addr 1234:4::2 ffff:ffff::
+     exit
+    bridge 1
+     exit
+    int bvi1
+     vrf for v1
+     ipv4 addr 2.2.2.5 255.255.255.0
+     ipv6 addr 4321::5 ffff:ffff::
+     exit
+    server vxlan vxl
+     bridge 1
+     vrf v1
+     inst 1234
+     exit

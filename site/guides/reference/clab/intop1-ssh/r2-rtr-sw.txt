@@ -1,0 +1,25 @@
+    hostname r2
+    ip routing
+    ipv6 unicast-routing
+    interface gigabit1
+     ip address 1.1.1.2 255.255.255.0
+     ipv6 address 1234::2/64
+     no shutdown
+     exit
+    interface gigabit2
+     ip address 2.2.2.1 255.255.255.0
+     ipv6 address 4321::1/64
+     no shutdown
+     exit
+    ip domain name lab
+    aaa new-model
+    aaa authentication login default local
+    username usr password pwd
+    crypto key generate rsa modulus 2048
+    line vty 0 4
+     transport input all
+     transport output all
+     no motd-banner
+     no exec-banner
+     no vacant-message
+     exit

@@ -1,0 +1,29 @@
+    hostname r12
+    vrf def v1
+     rd 1:1
+     exit
+    router rift4 1
+     vrf v1
+     router 42
+     red conn
+     exit
+    router rift6 1
+     vrf v1
+     router 62
+     red conn
+     exit
+    int lo1
+     vrf for v1
+     ipv4 addr 2.2.2.12 255.255.255.255
+     ipv6 addr 4321::12 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    int eth1.11
+     vrf for v1
+     ipv4 addr 1.1.1.42 255.255.255.252
+     router rift4 1 ena
+     exit
+    int eth1.12
+     vrf for v1
+     ipv6 addr 1234:11::2 ffff:ffff::
+     router rift6 1 ena
+     exit

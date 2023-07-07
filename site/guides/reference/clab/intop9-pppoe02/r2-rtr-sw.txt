@@ -1,0 +1,8 @@
+    hostname r2
+    set interfaces ge-0/0/0.0 encapsulation ppp-over-ether
+    set interfaces pp0.0 pppoe-options underlying-interface ge-0/0/0.0
+    set interfaces pp0.0 pppoe-options idle-timeout 0
+    set interfaces pp0.0 pppoe-options auto-reconnect 1
+    set interfaces pp0.0 pppoe-options client
+    set interfaces pp0.0 family inet address 1.1.1.2/24
+    set interfaces pp0.0 family inet6 address 1234::2/64

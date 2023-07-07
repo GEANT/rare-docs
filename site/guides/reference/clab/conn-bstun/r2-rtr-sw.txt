@@ -1,0 +1,40 @@
+    hostname r2
+    vrf def v1
+     rd 1:1
+     exit
+    proxy-profile p1
+     vrf v1
+     exit
+    prefix-list p1
+     permit 0.0.0.0/0
+     exit
+    int di1
+     enc ppp
+     vrf for v1
+     ipv4 addr 4.4.4.4 255.255.255.128
+     ppp ip4cp open
+     ppp ip4cp local 0.0.0.0
+     ipv4 gateway-prefix p1
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 3.3.3.2 255.255.255.252
+     exit
+    chat-script login
+     recv 5000 .*ser
+     send c
+     binsend 13
+     recv 5000 .*ass
+     send c
+     binsend 13
+     send ppp
+     binsend 13
+     exit
+    vpdn bs
+     interface di1
+     proxy p1
+     script login
+     target 3.3.3.1
+     vcid 123
+     protocol bstun
+     exit

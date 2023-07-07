@@ -1,0 +1,55 @@
+    hostname r3
+    vrf def v1
+     rd 1:1
+     label-mode per-prefix
+     exit
+    int lo0
+     vrf for v1
+     ipv4 addr 2.2.2.103 255.255.255.255
+     ipv6 addr 4321::103 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     mpls rsvp4
+     mpls rsvp6
+     exit
+    int lo1
+     vrf for v1
+     ipv4 addr 2.2.2.203 255.255.255.255
+     ipv6 addr 4321::203 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    router lsrp4 1
+     vrf v1
+     router 4.4.4.3
+     justadvert lo0
+     justadvert eth1
+     exit
+    router lsrp6 1
+     vrf v1
+     router 6.6.6.3
+     justadvert lo0
+     justadvert eth1
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.2 255.255.255.0
+     ipv6 addr 1234:1::2 ffff:ffff::
+     mpls enable
+     mpls rsvp4
+     mpls rsvp6
+     router lsrp4 1 ena
+     router lsrp6 1 ena
+     exit
+    int tun11
+     tun sou lo0
+     tun dest 2.2.2.101
+     tun vrf v1
+     tun mod p2pte
+     vrf for v1
+     ipv4 addr 1.1.11.2 255.255.255.0
+     exit
+    int tun12
+     tun sou lo0
+     tun dest 4321::101
+     tun vrf v1
+     tun mod p2pte
+     vrf for v1
+     ipv6 addr 1234:11::2 ffff:ffff::
+     exit

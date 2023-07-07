@@ -1,0 +1,23 @@
+    hostname r2
+    interface loopback0
+     ipv4 addr 2.2.2.2 255.255.255.255
+     ipv6 addr 4321::2/128
+     exit
+    interface gigabit0/0/0/0
+     ipv4 address 1.1.1.2 255.255.255.0
+     ipv6 address 1234::2/64
+     no shutdown
+     exit
+    router bgp 1
+     address-family ipv4 unicast
+      redistribute connected
+     address-family ipv6 unicast
+      redistribute connected
+     neighbor 1.1.1.1
+      remote-as 1
+      password tester
+      address-family ipv4 unicast
+     neighbor 1234::1
+      remote-as 1
+      password tester
+      address-family ipv6 unicast

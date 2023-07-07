@@ -1,0 +1,11 @@
+    hostname r1
+    vrf def v1
+     rd 1:1
+     exit
+    int eth1
+     macaddr 0000.0000.1111
+     vrf for v1
+     ipv4 addr 1.1.1.1 255.255.255.0
+     ipv6 addr 1234::1 ffff::
+     loss-detect
+     exit

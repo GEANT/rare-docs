@@ -1,0 +1,52 @@
+    hostname r3
+    vrf def v1
+     rd 1:1
+     exit
+    bridge 1
+     mac-learn
+     exit
+    int eth1
+     bridge-gr 1
+     exit
+    int eth2
+     bridge-gr 1
+     exit
+    int bvi1
+     vrf for v1
+     ipv4 addr 1.1.1.3 255.255.255.0
+     ipv6 addr 1234::3 ffff:ffff::
+     exit
+    router bgp4 1
+     vrf v1
+     no safe-ebgp
+     address evpn
+     local-as 3
+     router-id 4.4.4.3
+     neigh 1.1.1.1 remote-as 1
+     neigh 1.1.1.1 send-comm both
+     neigh 1.1.1.1 pmsi
+     neigh 1.1.1.1 segrou
+     neigh 1.1.1.1 route-server
+     neigh 1.1.1.2 remote-as 2
+     neigh 1.1.1.2 send-comm both
+     neigh 1.1.1.2 pmsi
+     neigh 1.1.1.2 segrou
+     neigh 1.1.1.2 route-server
+     exit
+    router bgp6 1
+     vrf v1
+     no safe-ebgp
+     address evpn
+     local-as 3
+     router-id 4.4.4.3
+     neigh 1234::1 remote-as 1
+     neigh 1234::1 send-comm both
+     neigh 1234::1 pmsi
+     neigh 1234::1 segrou
+     neigh 1234::1 route-server
+     neigh 1234::2 remote-as 2
+     neigh 1234::2 send-comm both
+     neigh 1234::2 pmsi
+     neigh 1234::2 segrou
+     neigh 1234::2 route-server
+     exit

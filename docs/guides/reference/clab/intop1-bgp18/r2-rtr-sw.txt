@@ -1,0 +1,23 @@
+    hostname r2
+    ip routing
+    ipv6 unicast-routing
+    mpls ldp explicit-null
+    interface loopback0
+     ip addr 2.2.2.2 255.255.255.255
+     ipv6 addr 4321::2/128
+     exit
+    interface gigabit1
+     ip address 1.1.1.2 255.255.255.0
+     mpls ip
+     no shutdown
+     exit
+    ip route 2.2.2.1 255.255.255.255 1.1.1.1
+    router bgp 1
+     neighbor 2.2.2.1 remote-as 1
+     neighbor 2.2.2.1 update-source loopback0
+     address-family ipv6 unicast
+      neighbor 2.2.2.1 activate
+      neighbor 2.2.2.1 send-community both
+      neighbor 2.2.2.1 send-label
+      red conn
+     exit

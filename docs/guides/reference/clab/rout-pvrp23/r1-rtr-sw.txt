@@ -1,0 +1,32 @@
+    hostname r1
+    vrf def v1
+     rd 1:1
+     exit
+    router pvrp4 1
+     vrf v1
+     router 4.4.4.1
+     red conn
+     exit
+    router pvrp6 1
+     vrf v1
+     router 6.6.6.1
+     red conn
+     exit
+    int lo1
+     vrf for v1
+     ipv4 addr 2.2.2.1 255.255.255.255
+     ipv6 addr 4321::1 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    int temp1
+     vrf for v1
+     ipv4 addr 9.9.9.9 255.255.255.0
+     ipv6 addr 9999::9 ffff::
+     router pvrp4 1 ena
+     router pvrp6 1 ena
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.1 255.255.255.0
+     ipv6 addr 1234::1 ffff::
+     temp temp1
+     exit

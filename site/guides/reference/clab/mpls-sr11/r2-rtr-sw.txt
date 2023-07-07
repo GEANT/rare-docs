@@ -1,0 +1,21 @@
+    hostname r2
+    access-list all
+     permit all any all any all
+     exit
+    vrf def v1
+     rd 1:1
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.2 255.255.255.0
+     ipv6 addr 1234::2 ffff::
+     ipv4 srh enable
+     ipv6 srh enable
+     exit
+    int eth2
+     vrf for v1
+     ipv4 addr 1.1.2.2 255.255.255.0
+     ipv6 addr 1235::2 ffff::
+     ipv4 srh enable
+     ipv6 srh enable
+     exit

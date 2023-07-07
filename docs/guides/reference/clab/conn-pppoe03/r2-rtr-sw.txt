@@ -1,0 +1,7 @@
+    hostname r2
+    int eth1
+     p2poe relay ser1
+     exit
+    int ser1
+     enc raw
+     exit

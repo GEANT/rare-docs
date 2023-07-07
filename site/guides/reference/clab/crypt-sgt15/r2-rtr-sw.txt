@@ -1,0 +1,25 @@
+    hostname r2
+    vrf def v1
+     rd 1:1
+     exit
+    int eth1
+     sgt ena
+     vrf for v1
+     ipv4 addr 1.1.1.2 255.255.255.0
+     ipv6 addr 1234::2 ffff::
+     exit
+    int eth2
+     vrf for v1
+     ipv4 addr 3.3.3.1 255.255.255.0
+     ipv6 addr 3333::1 ffff::
+     exit
+    int tun1
+     tun vrf v1
+     tun sou eth2
+     tun dest 3.3.3.2
+     tun mod gre
+     sgt ena
+     vrf for v1
+     ipv4 addr 2.2.2.1 255.255.255.0
+     ipv6 addr 4321::1 ffff::
+     exit

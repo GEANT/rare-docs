@@ -1,0 +1,26 @@
+    hostname r2
+    vrf def v1
+     rd 1:1
+     exit
+    proxy-profile p1
+     vrf v1
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.2 255.255.255.252
+     ipv6 addr 1234:1::2 ffff:ffff::
+     exit
+    bridge 1
+     exit
+    int bvi1
+     vrf for v1
+     ipv4 addr 2.2.2.2 255.255.255.0
+     ipv6 addr 4321::2 ffff:ffff::
+     exit
+    vpdn gnv
+     bridge-gr 1
+     proxy p1
+     tar 1.1.1.1
+     vcid 1234
+     prot geneve
+     exit

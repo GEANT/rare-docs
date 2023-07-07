@@ -1,0 +1,17 @@
+    hostname r2
+    interface gigabit0/0/0/0
+     ipv4 address 1.1.1.2 255.255.255.0
+     ipv6 address fe80::2 link-local
+     no shutdown
+     exit
+    interface loopback0
+     ipv4 addr 2.2.2.2 255.255.255.255
+     ipv6 addr 4321::2/128
+     exit
+    route-policy a
+     set rip-metric 5
+     pass
+    key chain kc1 key 0 key-string clear tester
+    router rip
+     redistribute connected route-policy a
+     interface gigabit0/0/0/0 authentication keychain kc1 mode text

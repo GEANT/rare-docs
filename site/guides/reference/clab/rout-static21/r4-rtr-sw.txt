@@ -1,0 +1,21 @@
+    hostname r4
+    vrf def v1
+     rd 1:1
+     exit
+    int lo0
+     vrf for v1
+     ipv4 addr 2.2.1.104 255.255.255.255
+     ipv6 addr 4320::104 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    int lo1
+     vrf for v1
+     ipv4 addr 2.2.3.104 255.255.255.255
+     ipv6 addr 4322::104 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.10 255.255.255.252
+     ipv6 addr 1234:3::2 ffff:ffff::
+     exit
+    ipv4 route v1 0.0.0.0 0.0.0.0 1.1.1.9
+    ipv6 route v1 :: :: 1234:3::1

@@ -1,0 +1,47 @@
+
+direction: right
+
+style {
+    fill: transparent 
+}
+
+classes: {
+  rare: {
+    shape: image
+    icon: https://raw.githubusercontent.com/GEANT/rare-docs/main/docs/img/rare.svg
+  }
+  xrd: {
+    shape: image
+    icon: https://raw.githubusercontent.com/GEANT/rare-docs/main/docs/img/xrd.svg
+  }
+  vr-xrv9k: {
+    shape: image
+    icon: https://raw.githubusercontent.com/GEANT/rare-docs/main/docs/img/vr-xrv9k.svg
+  }
+  linux: {
+    shape: image
+    icon: https://raw.githubusercontent.com/GEANT/rare-docs/main/docs/img/linux.svg
+  }
+  crpd: {
+    shape: image
+    icon: https://raw.githubusercontent.com/GEANT/rare-docs/main/docs/img/crpd.svg
+  }
+}
+
+r1.class: rare
+r2.class: vr-xrv9k
+r3.class: rare
+r4.class: rare
+
+r1 <-> r2: {
+  source-arrowhead.label: eth1
+  target-arrowhead.label: eth1
+}
+r2 <-> r3: {
+  source-arrowhead.label: eth2
+  target-arrowhead.label: eth1
+}
+r3 <-> r4: {
+  source-arrowhead.label: ser1
+  target-arrowhead.label: ser1
+}

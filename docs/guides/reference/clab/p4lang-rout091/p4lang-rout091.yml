@@ -1,0 +1,29 @@
+name: p4lang-rout091
+
+topology:
+  nodes:
+    r1:
+      kind: rare
+      image: ghcr.io/rare-freertr/freertr-containerlab:latest
+    r2:
+      kind: rare
+      image: ghcr.io/rare-freertr/freertr-containerlab:latest
+    r3:
+      kind: rare
+      image: ghcr.io/rare-freertr/freertr-containerlab:latest
+    r4:
+      kind: rare
+      image: ghcr.io/rare-freertr/freertr-containerlab:latest
+    r5:
+      kind: rare
+      image: ghcr.io/rare-freertr/freertr-containerlab:latest
+    r6:
+      kind: rare
+      image: ghcr.io/rare-freertr/freertr-containerlab:latest
+  links:
+    - endpoints: ["r1:eth1","r2:eth1"]
+    - endpoints: ["r1:eth2","r2:eth2"]
+    - endpoints: ["r2:eth3","r3:eth1"]
+    - endpoints: ["r2:eth4","r4:eth1"]
+    - endpoints: ["r2:eth5","r5:eth1"]
+    - endpoints: ["r2:eth6","r6:eth1"]

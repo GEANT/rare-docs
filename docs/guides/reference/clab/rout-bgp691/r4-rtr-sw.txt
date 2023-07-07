@@ -1,0 +1,65 @@
+    hostname r4
+    vrf def v1
+     rd 1:1
+     label-mode all-igp
+     exit
+    int lo0
+     vrf for v1
+     ipv4 addr 2.2.2.4 255.255.255.255
+     ipv6 addr 4321::4 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    int lo1
+     vrf for v1
+     ipv4 addr 3.3.3.4 255.255.255.255
+     ipv6 addr 3334::4 ffff:ffff:ffff:ffff::
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.10 255.255.255.252
+     ipv6 addr 1234:3::2 ffff:ffff::
+     mpls enable
+     exit
+    int eth2
+     vrf for v1
+     ipv4 addr 1.1.1.13 255.255.255.252
+     ipv6 addr 1234:4::1 ffff:ffff::
+     mpls enable
+     mpls ldp4
+     mpls ldp6
+     exit
+    ipv4 route v1 2.2.2.5 255.255.255.255 1.1.1.14
+    ipv6 route v1 4321::5 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff 1234:4::2
+    ipv4 route v1 2.2.2.6 255.255.255.255 1.1.1.14
+    ipv6 route v1 4321::6 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff 1234:4::2
+    ipv4 route v1 1.1.1.9 255.255.255.255 1.1.1.9 mplsimp
+    ipv6 route v1 1234:3::1 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff 1234:3::1 mplsimp
+    router bgp4 2
+     vrf v1
+     no safe-ebgp
+     address lab
+     local-as 2
+     router-id 4.4.4.4
+     neigh 2.2.2.5 remote-as 2
+     neigh 2.2.2.5 update lo0
+     neigh 2.2.2.5 multiple-label lab
+     neigh 2.2.2.5 next-hop-multi
+     neigh 1.1.1.9 remote-as 1
+     neigh 1.1.1.9 multiple-label lab
+     neigh 1.1.1.9 next-hop-multi
+     justadvert lo1
+     exit
+    router bgp6 2
+     vrf v1
+     no safe-ebgp
+     address lab
+     local-as 2
+     router-id 6.6.6.4
+     neigh 4321::5 remote-as 2
+     neigh 4321::5 update lo0
+     neigh 4321::5 multiple-label lab
+     neigh 4321::5 next-hop-multi
+     neigh 1234:3::1 remote-as 1
+     neigh 1234:3::1 multiple-label lab
+     neigh 1234:3::1 next-hop-multi
+     justadvert lo1
+     exit

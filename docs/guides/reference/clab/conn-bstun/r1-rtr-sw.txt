@@ -1,0 +1,31 @@
+    hostname r1
+    vrf def v1
+     rd 1:1
+     exit
+    int lo0
+     vrf for v1
+     ipv4 addr 1.1.1.1 255.255.255.255
+     exit
+    ipv4 pool p4 2.2.2.1 0.0.0.1 254
+    int di1
+     enc ppp
+     vrf for v1
+     ipv4 addr 2.2.2.0 255.255.255.255
+     ppp ip4cp local 2.2.2.0
+     ipv4 pool p4
+     ppp ip4cp open
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 3.3.3.1 255.255.255.252
+     exit
+    aaa userlist usr
+     username c password c
+     username c privilege 14
+     exit
+    server bstun bs
+     vrf v1
+     login authen usr
+     group 123
+     exec int di1
+     exit

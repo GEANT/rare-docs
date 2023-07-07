@@ -1,0 +1,26 @@
+    hostname r2
+    vrf def v1
+     rd 1:1
+     exit
+    proxy-profile p1
+     vrf v1
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.2 255.255.255.0
+     ipv6 addr 1234::2 ffff::
+     exit
+    bridge 1
+     mac-learn
+     exit
+    vpdn vx
+     bridge-group 1
+     proxy p1
+     target 1.1.1.1
+     protocol lwapp
+     exit
+    int bvi1
+     vrf for v1
+     ipv4 addr 2.2.2.2 255.255.255.0
+     ipv6 addr 4321::2 ffff::
+     exit

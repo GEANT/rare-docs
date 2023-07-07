@@ -1,0 +1,28 @@
+    hostname r1
+    vrf def v1
+     rd 1:1
+     exit
+    prefix-list p4
+     permit 0.0.0.0/0
+     exit
+    prefix-list p6
+     permit ::/0
+     exit
+    int lo1
+     vrf for v1
+     ipv4 addr 2.2.2.1 255.255.255.255
+     ipv6 addr 4321::1 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    int ser1
+     enc ppp
+     ppp ip4cp open
+     ppp ip4cp local 0.0.0.0
+     ppp ip6cp open
+     ppp user c
+     ppp pass c
+     vrf for v1
+     ipv4 addr dynamic dynamic
+     ipv4 gateway-prefix p4
+     ipv6 addr dynamic dynamic
+     ipv6 gateway-prefix p6
+     exit

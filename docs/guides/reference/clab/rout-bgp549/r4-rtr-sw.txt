@@ -1,0 +1,41 @@
+    hostname r4
+    vrf def v1
+     rd 1:1
+     exit
+    int lo0
+     vrf for v1
+     ipv4 addr 2.2.2.4 255.255.255.255
+     ipv6 addr 4321::4 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.4 255.255.255.0
+     ipv6 addr 1234:1::4 ffff:ffff::
+     exit
+    route-map rm1
+     sequence 10 act deny
+     sequence 10 match metric 2000-4000
+     sequence 20 act perm
+     exit
+    router bgp4 1
+     vrf v1
+     address ouni
+     local-as 1
+     router-id 4.4.4.4
+     neigh 1.1.1.1 remote-as 1
+     neigh 1.1.1.1 other-route-map-in rm1
+     afi-other ena
+     no afi-other vpn
+     afi-other red conn
+     exit
+    router bgp6 1
+     vrf v1
+     address ouni
+     local-as 1
+     router-id 6.6.6.4
+     neigh 1234:1::1 remote-as 1
+     neigh 1234:1::1 other-route-map-in rm1
+     afi-other ena
+     no afi-other vpn
+     afi-other red conn
+     exit

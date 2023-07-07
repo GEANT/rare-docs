@@ -35,7 +35,7 @@ site_author: Frederic LOUI
 site_description: RARE documentation
 repo_name: rare-freertr/freertr
 repo_url: https://github.com/frederic-loui/freertr
-site_url: https://docs.rare.geant.org
+#site_url: https://docs.rare.geant.org
 
 theme:
   logo: 'img/rare-icon.png'
@@ -57,9 +57,7 @@ extra_css:
   - 'css/extra.css'
 
 copyright: > 
-  <img src="/img/geant_logo_white.png">
-  <img src="/img/eu_logo.png"/><br>
-  <a href="#__consent">Change cookie settings</a>
+  <a href="#__consent">Change cookie settings</a> 
 extra:
   generator: true
   search:

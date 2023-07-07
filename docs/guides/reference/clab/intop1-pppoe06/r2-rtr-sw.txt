@@ -1,0 +1,17 @@
+    hostname r2
+    ip routing
+    ipv6 unicast-routing
+    interface dialer1
+     encapsulation ppp
+     ppp multilink
+     ppp multilink fragment size 111
+     ppp multilink fragment maximum 16
+     ip address 2.2.2.2 255.255.255.0
+     ipv6 address fe80::4321 link-local
+     dialer pool 1
+     dialer persistent
+     exit
+    interface gigabit1
+     pppoe-client dial-pool-number 1
+     no shutdown
+     exit

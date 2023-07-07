@@ -1,0 +1,12 @@
+name: rout-bgp133
+
+topology:
+  nodes:
+    r1:
+      kind: rare
+      image: ghcr.io/rare-freertr/freertr-containerlab:latest
+    r2:
+      kind: rare
+      image: ghcr.io/rare-freertr/freertr-containerlab:latest
+  links:
+    - endpoints: ["r1:eth1","r2:eth1"]

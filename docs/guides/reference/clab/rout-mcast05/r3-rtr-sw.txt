@@ -1,0 +1,34 @@
+    hostname r3
+    vrf def v1
+     rd 1:1
+     label-mode per-prefix
+     exit
+    int lo0
+     vrf for v1
+     ipv4 addr 2.2.2.2 255.255.255.255
+     ipv6 addr 4321::2 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.5 255.255.255.252
+     ipv6 addr 1234:2::1 ffff:ffff::
+     mpls ena
+     mpls ldp4
+     ipv4 multi mldp
+     mpls ldp6
+     ipv6 multi mldp
+     exit
+    int eth2
+     vrf for v1
+     ipv4 addr 1.1.1.9 255.255.255.252
+     ipv6 addr 1234:3::1 ffff:ffff::
+     mpls ena
+     mpls ldp4
+     ipv4 multi mldp
+     mpls ldp6
+     ipv6 multi mldp
+     exit
+    ipv4 route v1 2.2.2.1 255.255.255.255 1.1.1.6
+    ipv6 route v1 4321::1 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff 1234:2::2
+    ipv4 route v1 2.2.2.3 255.255.255.255 1.1.1.10
+    ipv6 route v1 4321::3 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff 1234:3::2

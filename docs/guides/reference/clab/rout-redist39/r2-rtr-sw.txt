@@ -1,0 +1,87 @@
+    hostname r2
+    vrf def v1
+     rd 1:1
+     exit
+    route-policy p4
+     if network 2.2.2.8/29 le 32
+      drop
+     else
+      pass
+     enif
+     exit
+    route-policy p6
+     if network 4321::10/124 le 128
+      drop
+     else
+      pass
+     enif
+     exit
+    route-map h4
+     match route-policy p4
+     exit
+    route-map h6
+     match route-policy p6
+     exit
+    router isis4 1
+     vrf v1
+     net 48.4444.1111.2222.00
+     is-type level2
+     red conn route-map h4
+     red isis4 2 route-map h4
+     exit
+    router isis6 1
+     vrf v1
+     net 48.6666.1111.2222.00
+     is-type level2
+     red conn route-map h6
+     red isis6 2 route-map h6
+     exit
+    router isis4 2
+     vrf v1
+     net 48.4444.2222.2222.00
+     is-type level2
+     red conn route-map h4
+     red isis4 1 route-map h4
+     exit
+    router isis6 2
+     vrf v1
+     net 48.6666.2222.2222.00
+     is-type level2
+     red conn route-map h6
+     red isis6 1 route-map h6
+     exit
+    int lo1
+     vrf for v1
+     ipv4 addr 2.2.2.2 255.255.255.255
+     ipv6 addr 4321::2 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    int lo2
+     vrf for v1
+     ipv4 addr 2.2.2.12 255.255.255.255
+     ipv6 addr 4321::12 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    int lo3
+     vrf for v1
+     ipv4 addr 2.2.2.22 255.255.255.255
+     ipv6 addr 4321::22 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    int eth1.11
+     vrf for v1
+     ipv4 addr 1.1.1.2 255.255.255.252
+     router isis4 1 ena
+     exit
+    int eth1.12
+     vrf for v1
+     ipv6 addr 1234:1::2 ffff:ffff::
+     router isis6 1 ena
+     exit
+    int eth2.11
+     vrf for v1
+     ipv4 addr 1.1.1.5 255.255.255.252
+     router isis4 2 ena
+     exit
+    int eth2.12
+     vrf for v1
+     ipv6 addr 1234:2::1 ffff:ffff::
+     router isis6 2 ena
+     exit

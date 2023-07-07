@@ -1,0 +1,28 @@
+    hostname r2
+    vrf def v1
+     rd 1:1
+     exit
+    crypto ipsec ips
+     group 17
+     cipher des
+     hash md5
+     seconds 3600
+     bytes 1024000
+     key tester
+     role resp
+     isakmp 2
+     protected ipv4
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.2 255.255.255.0
+     exit
+    int tun1
+     tunnel vrf v1
+     tunnel prot ips
+     tunnel mode ipsec
+     tunnel source ethernet1
+     tunnel destination 1.1.1.1
+     vrf for v1
+     ipv4 addr 2.2.2.2 255.255.255.0
+     exit

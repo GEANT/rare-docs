@@ -1,0 +1,46 @@
+    hostname r2
+    ip routing
+    ipv6 unicast-routing
+    mpls ldp explicit-null
+    interface loopback0
+     ip addr 2.2.2.2 255.255.255.255
+     ipv6 addr 4321::2/128
+     exit
+    interface gigabit1
+     ip address 1.1.1.2 255.255.255.0
+     ipv6 address 1234::2/64
+     mpls ip
+     no shutdown
+     exit
+    ip route 2.2.2.1 255.255.255.255 1.1.1.1
+    ipv6 route 4321::1/128 1234::1
+    router bgp 1
+     neighbor 2.2.2.1 remote-as 1
+     neighbor 2.2.2.1 update-source loopback0
+     neighbor 4321::1 remote-as 1
+     neighbor 4321::1 update-source loopback0
+     neighbor 4321::1 shutdown
+     address-family l2vpn vpls
+      neighbor 2.2.2.1 activate
+      neighbor 2.2.2.1 send-community both
+      neighbor 2.2.2.1 prefix-length-size 2
+      neighbor 4321::1 activate
+      neighbor 4321::1 send-community both
+      neighbor 4321::1 prefix-length-size 2
+     exit
+    l2vpn vfi context a
+     vpn id 1
+     autodiscovery bgp signaling ldp
+      vpls-id 1:1
+      rd 1:1
+      route-target export 1:1
+      route-target import 1:1
+     exit
+    bridge-domain 1
+     member vfi a
+     exit
+    interface bdi1
+     ip address 3.3.3.2 255.255.255.252
+     ipv6 address 4444::2/64
+     no shutdown
+     exit

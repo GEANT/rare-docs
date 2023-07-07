@@ -1,0 +1,52 @@
+    hostname r3
+    vrf def v1
+     rd 1:1
+     exit
+    router lsrp4 1
+     vrf v1
+     router 4.4.4.3
+     bier 256 10 3
+     red conn
+     exit
+    router lsrp6 1
+     vrf v1
+     router 6.6.6.3
+     bier 256 10 3
+     red conn
+     exit
+    int lo0
+     vrf for v1
+     ipv4 addr 2.2.2.103 255.255.255.255
+     ipv6 addr 4321::103 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     ipv4 pim ena
+     ipv6 pim ena
+     ipv4 pim join lo0
+     ipv6 pim join lo0
+     ipv4 pim bier 3
+     ipv6 pim bier 3
+     exit
+    bridge 1
+     mac-learn
+     block-unicast
+     exit
+    int eth1
+     bridge-gr 1
+     exit
+    int bvi1
+     vrf for v1
+     ipv4 addr 1.1.1.2 255.255.255.0
+     ipv6 addr 1234:1::2 ffff:ffff::
+     mpls enable
+     router lsrp4 1 ena
+     router lsrp6 1 ena
+     ipv4 pim ena
+     ipv6 pim ena
+     ipv4 pim join lo0
+     ipv6 pim join lo0
+     ipv4 pim bier 3
+     ipv6 pim bier 3
+     exit
+    ipv4 mroute v1 0.0.0.0 0.0.0.0 1.1.1.1
+    ipv6 mroute v1 :: :: 1234:1::1
+    ipv4 multi v1 join 232.2.2.2 2.2.2.106
+    ipv6 multi v1 join ff06::1 4321::106

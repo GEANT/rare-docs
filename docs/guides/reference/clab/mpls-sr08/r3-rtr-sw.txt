@@ -1,0 +1,86 @@
+    hostname r3
+    vrf def v1
+     rd 1:1
+     exit
+    vrf def v2
+     rd 1:2
+     rt-both 1:2
+     exit
+    vrf def v3
+     rd 1:3
+     rt-both 1:3
+     exit
+    vrf def v4
+     rd 1:4
+     rt-both 1:4
+     exit
+    router lsrp4 1
+     vrf v1
+     router 4.4.4.3
+     segrout 10 3
+     exit
+    router lsrp6 1
+     vrf v1
+     router 6.6.6.3
+     segrout 10 3
+     exit
+    int lo1
+     vrf for v1
+     ipv4 addr 2.2.2.3 255.255.255.255
+     ipv6 addr 4321::3 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     router lsrp4 1 ena
+     router lsrp6 1 ena
+     exit
+    int lo2
+     vrf for v2
+     ipv4 addr 9.9.2.3 255.255.255.255
+     ipv6 addr 9992::3 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    int lo3
+     vrf for v3
+     ipv4 addr 9.9.3.3 255.255.255.255
+     ipv6 addr 9993::3 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    int lo4
+     vrf for v4
+     ipv4 addr 9.9.4.3 255.255.255.255
+     ipv6 addr 9994::3 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.2.3 255.255.255.0
+     ipv6 addr 1235::3 ffff::
+     mpls enable
+     router lsrp4 1 ena
+     router lsrp6 1 ena
+     exit
+    router bgp4 1
+     vrf v1
+     address ovpnuni
+     local-as 1
+     router-id 4.4.4.3
+     neigh 2.2.2.1 remote-as 1
+     neigh 2.2.2.1 update lo1
+     neigh 2.2.2.1 send-comm both
+     afi-ovrf v2 ena
+     afi-ovrf v2 red conn
+     afi-ovrf v3 ena
+     afi-ovrf v3 red conn
+     afi-ovrf v4 ena
+     afi-ovrf v4 red conn
+     exit
+    router bgp6 1
+     vrf v1
+     address ovpnuni
+     local-as 1
+     router-id 6.6.6.3
+     neigh 4321::1 remote-as 1
+     neigh 4321::1 update lo1
+     neigh 4321::1 send-comm both
+     afi-ovrf v2 ena
+     afi-ovrf v2 red conn
+     afi-ovrf v3 ena
+     afi-ovrf v3 red conn
+     afi-ovrf v4 ena
+     afi-ovrf v4 red conn
+     exit

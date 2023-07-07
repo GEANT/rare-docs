@@ -1,0 +1,23 @@
+    hostname r2
+    vrf def v1
+     rd 1:1
+     exit
+    crypto ipsec ips
+     group 02
+     cipher des
+     hash md5
+     key tester
+     exit
+    int eth1
+     macsec ips
+     sgt ena
+     vrf for v1
+     ipv4 addr 1.1.1.2 255.255.255.0
+     ipv6 addr 1234::2 ffff::
+     exit
+    int eth2
+     sgt ena
+     vrf for v1
+     ipv4 addr 2.2.2.1 255.255.255.0
+     ipv6 addr 4321::1 ffff::
+     exit

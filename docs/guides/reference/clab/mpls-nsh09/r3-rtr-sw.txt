@@ -1,0 +1,9 @@
+    hostname r3
+    int eth1
+     nsh ena
+     exit
+    int eth2
+     nsh ena
+     exit
+    nsh 3 254 int eth1 0000.1111.2222
+    nsh 2 254 int eth2 0000.1111.2222

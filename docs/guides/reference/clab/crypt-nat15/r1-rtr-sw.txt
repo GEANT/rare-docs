@@ -1,0 +1,35 @@
+    hostname r1
+    vrf def v1
+     rd 1:1
+     exit
+    vrf def v2
+     rd 1:1
+     exit
+    int lo1
+     vrf for v2
+     ipv4 addr 3.3.3.3 255.255.255.255
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.1 255.255.255.252
+     ipv6 addr 1234:1::1 ffff:ffff::
+     exit
+    int eth2
+     vrf for v1
+     ipv4 addr 1.1.1.5 255.255.255.252
+     ipv6 addr 1234:2::1 ffff:ffff::
+     exit
+    int tun1
+     tun sou eth1
+     tun dest 1.1.1.2
+     tun vrf v1
+     tun dom 1234:1::2 10000-19999 1234:2::2 20000-29999
+     tun mod aplusp
+     vrf for v1
+     ipv4 addr 2.2.2.1 255.255.255.252
+     ipv6 addr 4321::1234 ffff:ffff::
+     exit
+    server telnet tel
+     vrf v1
+     port 666
+     exit

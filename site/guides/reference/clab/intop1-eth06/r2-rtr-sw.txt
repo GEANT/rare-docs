@@ -1,0 +1,13 @@
+    hostname r2
+    ip routing
+    ipv6 unicast-routing
+    interface port-channel1
+     ip address 1.1.1.2 255.255.255.0
+     ipv6 address 1234::2/64
+     no shutdown
+     exit
+    interface gigabit1
+     lacp rate fast
+     channel-group 1 mode active
+     no shutdown
+     exit

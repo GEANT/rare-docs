@@ -1,0 +1,20 @@
+name: conn-nvgre10
+
+topology:
+  nodes:
+    r1:
+      kind: rare
+      image: ghcr.io/rare-freertr/freertr-containerlab:latest
+    r2:
+      kind: rare
+      image: ghcr.io/rare-freertr/freertr-containerlab:latest
+    r3:
+      kind: rare
+      image: ghcr.io/rare-freertr/freertr-containerlab:latest
+    r4:
+      kind: rare
+      image: ghcr.io/rare-freertr/freertr-containerlab:latest
+  links:
+    - endpoints: ["r1:ser1","r2:ser1"]
+    - endpoints: ["r2:eth1","r3:eth1"]
+    - endpoints: ["r3:ser1","r4:ser1"]

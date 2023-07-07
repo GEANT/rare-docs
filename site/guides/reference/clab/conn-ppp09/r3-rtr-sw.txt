@@ -1,0 +1,22 @@
+    hostname r3
+    vrf def v1
+     rd 1:1
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 3.3.3.3 255.255.255.0
+     exit
+    aaa userlist usr
+     username c password c
+     username c ipv4addr 1.1.1.1
+     username c ipv4route 2.2.2.1/32 dist 123
+     username c ipv6addr 1234::1
+     username c ipv6ifid 1234-1234-1234-1234
+     username c ipv6route 4321::1/128 dist 222
+     exit
+    server radius rad
+     authen usr
+     secret c
+     logg
+     vrf v1
+     exit

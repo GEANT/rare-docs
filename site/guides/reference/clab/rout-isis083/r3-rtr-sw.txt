@@ -1,0 +1,43 @@
+    hostname r3
+    vrf def v1
+     rd 1:1
+     exit
+    access-list test4
+     deny 1 any all any all
+     permit all any all any all
+     exit
+    access-list test6
+     deny all 4321:: ffff:: all 4321:: ffff:: all
+     permit all any all any all
+     exit
+    router isis4 1
+     vrf v1
+     net 48.4444.0000.3333.00
+     is-type level2
+     traffeng 4.4.4.3
+     segrout 10
+     both segrout
+     red conn
+     afi-other enable
+     afi-other red conn
+     exit
+    int lo1
+     vrf for v1
+     ipv4 addr 2.2.2.3 255.255.255.255
+     ipv6 addr 4321::3 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     router isis4 1 ena
+     router isis4 1 other-ena
+     router isis4 1 segrout index 5
+     router isis4 1 segrout other-index 6
+     router isis4 1 segrout node
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.6 255.255.255.252
+     ipv4 access-group-in test4
+     ipv6 addr 1234:2::2 ffff:ffff::
+     ipv6 access-group-in test6
+     mpls enable
+     router isis4 1 ena
+     router isis4 1 other-ena
+     exit

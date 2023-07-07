@@ -1,0 +1,20 @@
+    hostname r1
+    vrf def v1
+     rd 1:1
+     exit
+    vrf def v2
+     rd 1:2
+     exit
+    hairpin 1
+     no ether
+     exit
+    int hairpin11
+     vrf for v1
+     ipv4 addr 1.1.1.1 255.255.255.0
+     ipv6 addr 1234::1 ffff::
+     exit
+    int hairpin12
+     vrf for v2
+     ipv4 addr 1.1.1.2 255.255.255.0
+     ipv6 addr 1234::2 ffff::
+     exit

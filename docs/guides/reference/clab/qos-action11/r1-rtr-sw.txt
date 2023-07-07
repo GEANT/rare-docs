@@ -1,0 +1,14 @@
+    hostname r1
+    vrf def v1
+     rd 1:1
+     exit
+    policy-map p1
+     seq 10 act sha
+      access-rate 65536
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.1 255.255.255.0
+     ipv6 addr 1234::1 ffff::
+     service-policy-in p1
+     exit

@@ -1,0 +1,61 @@
+    hostname r1
+    vrf def v1
+     rd 1:1
+     exit
+    access-list test4
+     deny 1 any all any all
+     permit all any all any all
+     exit
+    access-list test6
+     deny 58 4321:: ffff:: all 4321:: ffff:: all
+     permit all any all any all
+     exit
+    router ospf4 1
+     vrf v1
+     router 4.4.4.1
+     segrout 10
+     area 0 ena
+     area 0 segrout
+     red conn
+     exit
+    router ospf6 1
+     vrf v1
+     router 6.6.6.1
+     segrout 10
+     area 0 ena
+     area 0 segrout
+     red conn
+     exit
+    int lo1
+     vrf for v1
+     ipv4 addr 2.2.2.1 255.255.255.255
+     ipv6 addr 4321::1 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     router ospf4 1 ena
+     router ospf4 1 segrout index 1
+     router ospf4 1 segrout node
+     router ospf4 1 segrout pop
+     router ospf6 1 ena
+     router ospf6 1 segrout index 1
+     router ospf6 1 segrout node
+     router ospf6 1 segrout pop
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.1 255.255.255.252
+     ipv6 addr 1234:1::1 ffff:ffff::
+     ipv4 access-group-in test4
+     ipv6 access-group-in test6
+     mpls enable
+     router ospf4 1 ena
+     router ospf6 1 ena
+     exit
+    int pweth1
+     vrf for v1
+     ipv4 addr 3.3.3.1 255.255.255.0
+     pseudo v1 lo1 pweompls 2.2.2.3 1234
+     exit
+    int pweth2
+     vrf for v1
+     ipv4 addr 3.3.4.1 255.255.255.0
+     pseudo v1 lo1 pweompls 4321::3 1234
+     exit

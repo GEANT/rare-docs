@@ -1,0 +1,9 @@
+    hostname r2
+    vrf def v1
+     rd 1:1
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.2 255.255.255.252
+     ipv6 addr 1234::2 ffff:ffff::
+     exit

@@ -1,0 +1,47 @@
+    hostname r2
+    ip routing
+    ipv6 unicast-routing
+    mpls ldp explicit-null
+    interface loopback0
+     ip addr 2.2.2.2 255.255.255.255
+     ipv6 addr 4321::2/128
+     exit
+    interface gigabit1
+     ip address 1.1.1.2 255.255.255.0
+     ipv6 address 1234::2/64
+     mpls ip
+     no shutdown
+     exit
+    interface gigabit2
+     no shutdown
+     service instance 10 ethernet
+      encapsulation dot1q 10
+      rewrite ingress tag pop 1 symmetric
+     exit
+    ip route 2.2.2.1 255.255.255.255 1.1.1.1
+    ipv6 route 4321::1/128 1234::1
+    router bgp 1
+     neighbor 2.2.2.1 remote-as 1
+     neighbor 2.2.2.1 update-source loopback0
+     neighbor 4321::1 remote-as 1
+     neighbor 4321::1 update-source loopback0
+     neighbor 4321::1 shutdown
+     address-family l2vpn evpn
+      neighbor 2.2.2.1 activate
+      neighbor 2.2.2.1 send-community both
+      neighbor 4321::1 activate
+      neighbor 4321::1 send-community both
+     exit
+    l2vpn evpn
+     replication-type ingress
+     router-id Loopback0
+     exit
+    l2vpn evpn instance 10 vlan-aware
+     rd 1:1
+     route-target export 1:1
+     route-target import 1:1
+     exit
+    bridge-domain 10
+     member gigabit2 service-instance 10
+     member evpn-instance 10 ethernet-tag 10
+     exit

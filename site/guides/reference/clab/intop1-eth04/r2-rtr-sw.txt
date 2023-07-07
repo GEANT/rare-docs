@@ -1,0 +1,18 @@
+    hostname r2
+    ip routing
+    ipv6 unicast-routing
+    bridge irb
+    bridge 1 protocol ieee
+    bridge 1 route ip
+    interface gigabit1
+     bridge-group 1
+     no shutdown
+     exit
+    interface gigabit2
+     bridge-group 1
+     no shutdown
+     exit
+    interface bvi1
+     ip address 1.1.1.2 255.255.255.0
+     no shutdown
+     exit

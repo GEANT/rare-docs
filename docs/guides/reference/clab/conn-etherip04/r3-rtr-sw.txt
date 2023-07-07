@@ -1,0 +1,13 @@
+    hostname r3
+    vrf def v1
+     rd 1:1
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 1.1.1.2 255.255.255.0
+     ipv6 addr 1234::2 ffff:ffff::
+     exit
+    int ser1
+     enc hdlc
+     xconnect v1 eth1 etherip 1.1.1.1 123
+     exit

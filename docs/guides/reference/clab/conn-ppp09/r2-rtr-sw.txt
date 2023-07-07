@@ -1,0 +1,30 @@
+    hostname r2
+    vrf def v1
+     rd 1:1
+     exit
+    int lo1
+     vrf for v1
+     ipv4 addr 2.2.2.2 255.255.255.255
+     ipv6 addr 4321::2 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     exit
+    proxy-profile p1
+     vrf v1
+     exit
+    client proxy p1
+    aaa radius usr
+     secret c
+     server 3.3.3.3
+     exit
+    int eth1
+     vrf for v1
+     ipv4 addr 3.3.3.2 255.255.255.0
+     exit
+    int ser1
+     enc ppp
+     ppp ip4cp local 1.1.1.2
+     ppp ip6cp open
+     ppp auth usr
+     vrf for v1
+     ipv4 addr dynamic dynamic
+     ipv6 addr dynamic dynamic
+     exit

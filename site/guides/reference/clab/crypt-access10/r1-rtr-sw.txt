@@ -1,0 +1,44 @@
+    hostname r1
+    vrf def v1
+     rd 1:1
+     exit
+    track t
+     vrf v1
+     targ 2.2.2.4
+     mod icmp
+     inter 1000
+     time 500
+     start
+     exit
+    scheduler f
+     time 1000
+     command clear follow-tracker
+     start
+     exit
+    int lo1
+     vrf for v1
+     ipv4 addr 2.2.2.1 255.255.255.255
+     ipv6 addr 4321::1 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+     follow t
+     exit
+    bridge 1
+     mac-learn
+     exit
+    int eth1
+     bridge-gr 1
+     exit
+    int eth2
+     bridge-gr 1
+     exit
+    int eth3
+     bridge-gr 1
+     exit
+    int bvi1
+     vrf for v1
+     ipv4 addr 1.1.1.1 255.255.255.0
+     ipv6 addr 1234::1 ffff::
+     exit
+    server telnet tel
+     vrf v1
+     port 666
+     exit
