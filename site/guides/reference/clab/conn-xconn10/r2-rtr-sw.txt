@@ -1,9 +1,0 @@
-    hostname r2
-    int eth1.11
-     exit
-    int eth1.22
-     exit
-    connect con
-     side1 eth1.11
-     side2 eth1.22
-     exit

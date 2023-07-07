@@ -1,9 +1,0 @@
-    hostname r3
-    vrf def v1
-     rd 1:1
-     exit
-    int eth1
-     vrf for v1
-     ipv6 addr 1234::101:105 ffff:ffff:ffff:ffff:ffff:ffff:ffff:fffc
-     exit
-    ipv6 route v1 :: :: 1234::101:106
