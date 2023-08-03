@@ -1581,7 +1581,8 @@
 | [p4lang-crypt106](md/p4lang-crypt106.md) | :material-check: | p4lang: sgt egress access list |
 | [p4lang-crypt107](md/p4lang-crypt107.md) | :material-check: | p4lang: sgt vlan ingress access list |
 | [p4lang-crypt108](md/p4lang-crypt108.md) | :material-check: | p4lang: sgt vlan egress access list |
-| [p4lang-crypt109](md/p4lang-crypt109.md) | :material-check: | p4lang: packout on port |
+| [p4lang-packo01](md/p4lang-packo01.md) | :material-check: | p4lang: packout on port |
+| [p4lang-packo02](md/p4lang-packo02.md) | :material-check: | p4lang: packout on vlan port |
 | [p4lang-rout001](md/p4lang-rout001.md) | :material-check: | p4lang: routing |
 | [p4lang-rout002](md/p4lang-rout002.md) | :material-check: | p4lang: bridging |
 | [p4lang-rout003](md/p4lang-rout003.md) | :material-check: | p4lang: mpls core |

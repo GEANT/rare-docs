@@ -2,7 +2,7 @@
 
 === "Topology"
 
-    ![Alt text](../d2/p4lang-crypt109/p4lang-crypt109.svg)
+    ![Alt text](../d2/p4lang-packo01/p4lang-packo01.svg)
 
 === "Configurations"
 
@@ -70,6 +70,7 @@
      ipv6 ena
      exit
     server p4lang p4
+     api-stat
      interconnect eth2
      export-vrf v1
      export-port sdn1 1 -2
@@ -335,16 +336,16 @@
     === "ContainerLab"
 
         1. Install ContainerLab as described [here](https://containerlab.dev/install/)  
-        2. Fetch [p4lang-crypt109](../clab/p4lang-crypt109/p4lang-crypt109.yml) file  
-        3. Launch ContainerLab `p4lang-crypt109.yml` topology:  
+        2. Fetch [p4lang-packo01](../clab/p4lang-packo01/p4lang-packo01.yml) file  
+        3. Launch ContainerLab `p4lang-packo01.yml` topology:  
 
         ```
-           containerlab deploy --topo p4lang-crypt109.yml  
+           containerlab deploy --topo p4lang-packo01.yml  
         ```
-        4. Destroy ContainerLab `p4lang-crypt109.yml` topology:  
+        4. Destroy ContainerLab `p4lang-packo01.yml` topology:  
 
         ```
-           containerlab destroy --topo p4lang-crypt109.yml  
+           containerlab destroy --topo p4lang-packo01.yml  
         ```
         5. Copy-paste configuration for each node in the lab topology
 
@@ -352,13 +353,13 @@
 
         1. Fetch or compile freeRtr rtr.jar file.  
            You can grab it [here](http://www.freertr.org/rtr.jar)  
-        2. Fetch `p4lang-crypt109.tst` file [here](../tst/p4lang-crypt109.tst)  
-        3. Launch `p4lang-crypt109.tst` test:  
+        2. Fetch `p4lang-packo01.tst` file [here](../tst/p4lang-packo01.tst)  
+        3. Launch `p4lang-packo01.tst` test:  
 
         ```
-           java -jar ../../rtr.jar test tester p4lang-crypt109 path ./ temp ./ wait
+           java -jar ../../rtr.jar test tester p4lang-packo01 path ./ temp ./ wait
         ```
-        4. Destroy freeRtr `p4lang-crypt109.tst` test:  
+        4. Destroy freeRtr `p4lang-packo01.tst` test:  
 
         ```
            Ctrl-C (In freeRtr test window)
