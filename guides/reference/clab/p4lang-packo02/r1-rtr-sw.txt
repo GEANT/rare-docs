@@ -31,6 +31,8 @@
      ipv6 addr 4321::101 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
      exit
     int sdn1
+     exit
+    int sdn1.111
      no autostat
      vrf for v1
      ipv4 addr 1.1.1.1 255.255.255.0
@@ -59,6 +61,7 @@
      ipv6 ena
      exit
     server p4lang p4
+     api-stat
      interconnect eth2
      export-vrf v1
      export-port sdn1 1 -2
