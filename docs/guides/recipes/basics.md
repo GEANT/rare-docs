@@ -101,7 +101,7 @@ In this example:
 * `VRF(s)` have assigned the numbers `1` and `2` It can be arbitrary integer values.
 * `Bridges` have assigned the numbers `1000` and `1001`. It can be arbitrary integer values. 
 
-* Nevertheless, the `port-mapping` of the `interfaces` needs to be assigned using the [interface configuration document](/guides/installation/wedge100bf32/interface/).
+* Nevertheless, the `port-mapping` of the `interfaces` needs to be assigned using the [interface configuration document](../installation/wedge100bf32/interface.md).
 
 * For the `VLAN sub-interfaces`, the mapping is configured using the keyword `dynamic` 
 

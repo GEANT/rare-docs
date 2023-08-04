@@ -763,7 +763,7 @@ pinging 30.30.30.2, src=null, vrf=v1, cnt=5, len=64, tim=1000, gap=0, ttl=255, t
 !!!!!
 result=100%, recv/sent/lost/err=5/5/0/0, rtt min/avg/max/sum=0/0/3/8, ttl min/avg/max=255/255/255, tos min/avg/max=0/0/0
 ```
-![Shortest Path](/img/upload_fc7ec37244d45d0fc56cf6e5477a1a47.png)
+![Shortest Path](../../img/upload_fc7ec37244d45d0fc56cf6e5477a1a47.png)
 
 - **Longest Path tunnel2 ipv4**
 
@@ -773,7 +773,7 @@ pinging 40.40.40.2, src=null, vrf=v1, cnt=5, len=64, tim=1000, gap=0, ttl=255, t
 !!!!!
 result=100%, recv/sent/lost/err=5/5/0/0, rtt min/avg/max/sum=3/4/6/23, ttl min/avg/max=255/255/255, tos min/avg/max=0/0/0
 ```
-![Longuest Path](/img/upload_964c33bf6e483c09d210eab98bcc59cc.png)
+![Longuest Path](../../img/upload_964c33bf6e483c09d210eab98bcc59cc.png)
 
 
 - **Shortest Path tunnel3 ipv6**
@@ -784,7 +784,7 @@ pinging 3030::2, src=null, vrf=v1, cnt=5, len=64, tim=1000, gap=0, ttl=255, tos=
 !!!!!
 result=100%, recv/sent/lost/err=5/5/0/0, rtt min/avg/max/sum=0/0/1/2, ttl min/avg/max=255/255/255, tos min/avg/max=0/0/0
 ```
-![Shortest Path](/img/upload_6eb53de9dc87aa3f4143a4183903573b.png)
+![Shortest Path](../../img/upload_6eb53de9dc87aa3f4143a4183903573b.png)
 
 - **Longest Path tunnel4 ipv6**
 
@@ -795,7 +795,7 @@ pinging 4040::2, src=null, vrf=v1, cnt=5, len=64, tim=1000, gap=0, ttl=255, tos=
 !!!!!
 result=100%, recv/sent/lost/err=5/5/0/0, rtt min/avg/max/sum=0/0/0/2, ttl min/avg/max=255/255/255, tos min/avg/max=0/0/0
 ```
-![Longuest Path](/img/upload_c82ee2d30c8907e0ec60648e89cc10d0.png)
+![Longuest Path](../../img/upload_c82ee2d30c8907e0ec60648e89cc10d0.png)
 
 
 ### 3.4 Visualizing route table

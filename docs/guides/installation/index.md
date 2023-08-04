@@ -16,7 +16,7 @@ In order to guarantee the best user experience, we strongly feel that the first 
 * the best Open source router experience
 
 !!! note
-    Should you need mode information regarding a distributed installation approach, don't hesitate to engage with us via RARE/freeRtr mailing. Contact infornation can be found [here](/contacts/)
+    Should you need mode information regarding a distributed installation approach, don't hesitate to engage with us via RARE/freeRtr mailing. Contact infornation can be found [here](../../contacts.md)
 
 
 [This article](http://y.freertr.org/X7nTC) and [this article](http://y.freertr.org/XIBbF) can also help you understand how RARE/freeRtr can be deployed via a complete disaggregated model.
