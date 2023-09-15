@@ -1,4 +1,4 @@
-# **RARE** home
+# **RARE** documentation home
 
 ## **Overview**
 **RARE** (**R**outer for **A**cademia, **R**esearch & **E**ducation) is an ongoing effort under the [GÉANT 5th programme](https://www.geant.org/Projects/GEANT_Project_GN4-3) which focus on creating an Open Source routing software platform.
