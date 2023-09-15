@@ -11,31 +11,51 @@ classes: {
     icon: https://raw.githubusercontent.com/GEANT/rare-docs/main/docs/img/rare.svg
     width: 24
     height: 24
+    style {
+      font-size: 8 
+      font-color: "#3aafe3" 
+    }
   }
   xrd: {
     shape: image
     icon: https://raw.githubusercontent.com/GEANT/rare-docs/main/docs/img/xrd.svg
     width: 24
     height: 24
+    style {
+      font-size: 8 
+      font-color: "#3aafe3" 
+    }
   }
   vr-xrv9k: {
     shape: image
     icon: https://raw.githubusercontent.com/GEANT/rare-docs/main/docs/img/vr-xrv9k.svg
     width: 24
     height: 24
-}
+    style {
+      font-size: 8 
+      font-color: "#3aafe3" 
+    }
+  }
   linux: {
     shape: image
     icon: https://raw.githubusercontent.com/GEANT/rare-docs/main/docs/img/linux.svg
     width: 24
     height: 24
-}
+    style {
+      font-size: 8 
+      font-color: "#3aafe3" 
+    }
+  }
   crpd: {
     shape: image
     icon: https://raw.githubusercontent.com/GEANT/rare-docs/main/docs/img/crpd.svg
     width: 24
     height: 24
-}
+    style {
+      font-size: 8 
+      font-color: "#3aafe3" 
+    }
+  }
 }
 
 r1.class: rare
@@ -43,15 +63,33 @@ r2.class: rare
 r3.class: rare
 r4.class: rare
 
-r1 <-> r2: {
+r1 -- r2: {
   source-arrowhead.label: eth1
   target-arrowhead.label: eth2
+  style: {
+    stroke: "#3aafe3"
+    stroke-width: 1 
+    font-size: 8 
+    font-color: "#3aafe3" 
+  }
 }
-r2 <-> r3: {
+r2 -- r3: {
   source-arrowhead.label: eth1
   target-arrowhead.label: eth1
+  style: {
+    stroke: "#3aafe3"
+    stroke-width: 1 
+    font-size: 8 
+    font-color: "#3aafe3" 
+  }
 }
-r3 <-> r4: {
+r3 -- r4: {
   source-arrowhead.label: eth2
   target-arrowhead.label: eth1
+  style: {
+    stroke: "#3aafe3"
+    stroke-width: 1 
+    font-size: 8 
+    font-color: "#3aafe3" 
+  }
 }
