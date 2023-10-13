@@ -2708,6 +2708,8 @@
 | [rout-bgp777](md/rout-bgp777.md) | :material-check: | unicast+vpns over ibgp with dynamic capability |
 | [rout-bgp778](md/rout-bgp778.md) | :material-check: | unicast+vpns over confed bgp with dynamic capability |
 | [rout-bgp779](md/rout-bgp779.md) | :material-check: | unicast+vpns over ibgp rr with dynamic capability |
+| [rout-bgp780](md/rout-bgp780.md) | :material-check: | ebgp with pmtud |
+| [rout-bgp781](md/rout-bgp781.md) | :material-check: | ibgp with pmtud |
 | [rout-eigrp01](md/rout-eigrp01.md) | :material-check: | eigrp point2point connection |
 | [rout-eigrp02](md/rout-eigrp02.md) | :material-check: | eigrp point2multipoint connection |
 | [rout-eigrp03](md/rout-eigrp03.md) | :material-check: | eigrp point2point chain |
@@ -2893,6 +2895,7 @@
 | [rout-lsrp47](md/rout-lsrp47.md) | :material-check: | lsrp dynamic twamp metric |
 | [rout-lsrp48](md/rout-lsrp48.md) | :material-check: | lsrp with mpolka |
 | [rout-lsrp49](md/rout-lsrp49.md) | :material-check: | lsrp flexalgo |
+| [rout-lsrp50](md/rout-lsrp50.md) | :material-check: | lsrp with pmtud |
 | [rout-mcast01](md/rout-mcast01.md) | :material-check: | multicast routing with static flooding |
 | [rout-mcast02](md/rout-mcast02.md) | :material-check: | multicast routing with pim ssm |
 | [rout-mcast03](md/rout-mcast03.md) | :material-check: | multicast routing with igmp/mld |
@@ -3057,6 +3060,7 @@
 | [rout-pvrp52](md/rout-pvrp52.md) | :material-check: | pvrp with selective bier |
 | [rout-pvrp53](md/rout-pvrp53.md) | :material-check: | pvrp with polka |
 | [rout-pvrp54](md/rout-pvrp54.md) | :material-check: | pvrp auto summarization |
+| [rout-pvrp55](md/rout-pvrp55.md) | :material-check: | pvrp with pmtud |
 | [rout-redist01](md/rout-redist01.md) | :material-check: | redistribution with isis |
 | [rout-redist02](md/rout-redist02.md) | :material-check: | redistribution with ospf |
 | [rout-redist03](md/rout-redist03.md) | :material-check: | redistribution with rip |
