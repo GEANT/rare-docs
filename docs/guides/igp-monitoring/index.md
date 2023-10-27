@@ -1,4 +1,4 @@
-# ** a way to get rid of snmp - part 1, the igp monitoring **
+# **a way to get rid of snmp - part 1, the igp monitoring**
 
 The link state igp protocols flood the complete topology description in lsa/lsp packets so all the routers in a given area/level have the same view.
 It also means that if you have a box that can report the whole topology, it's unnecessary to bother all the other boxes about these questions.

@@ -1,4 +1,4 @@
-# ** freeRtr topology simulation **
+# **freeRtr topology simulation**
 
 ## 1 Overview
 In [Hello freeRtr !](001-hello-world.md) you learned how to implement one single freeRtr node that has 2 interfaces. In this page, you'll learn:

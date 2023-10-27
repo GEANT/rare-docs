@@ -1,4 +1,4 @@
-# ** RARE NOS experimental software installation**
+# **RARE NOS experimental software installation**
 
 This command will install latest commit from [freeRtr](https://github.com/rare-freertr/freeRtr) `master` branch
 

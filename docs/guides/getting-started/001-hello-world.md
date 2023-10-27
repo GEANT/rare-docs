@@ -1,4 +1,4 @@
-# ** Hello freeRtr !**
+# **Hello freeRtr !**
 
 ## 1 Overview
 As freeRtr's author mentions: "freeRouter is a free, open source router OS process, it speaks routing protocols, and (re)encapsulates packets on interfaces. it receives and sends packets through udp sockets".

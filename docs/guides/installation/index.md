@@ -1,4 +1,4 @@
-# ** RARE/freeRtr installation**
+# **RARE/freeRtr installation**
 
 This section lists RARE/freeRtr routing platform possible installations. There multiple ways to achieve that. You can install every components in the same hardware similar to traditional router design, or even opt for a totally disaggregated model where all components are in different hardware and or virtual environment.
 

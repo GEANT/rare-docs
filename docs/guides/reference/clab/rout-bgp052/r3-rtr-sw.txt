@@ -17,13 +17,21 @@
      ipv4 addr 1.1.1.6 255.255.255.252
      ipv6 addr 1234:2::2 ffff:ffff::
      exit
+    router rpki4 1
+     vrf v1
+     exit
+    router rpki6 1
+     vrf v1
+     exit
     router bgp4 1
      vrf v1
      no safe-ebgp
      address uni
      local-as 2
      router-id 4.4.4.3
+     rpki rpki4 1
      neigh 1.1.1.5 remote-as 1
+     neigh 1.1.1.5 rpki-in acc
      red conn
      exit
     router bgp6 1
@@ -32,6 +40,8 @@
      address uni
      local-as 2
      router-id 6.6.6.3
+     rpki rpki6 1
      neigh 1234:2::1 remote-as 1
+     neigh 1234:2::1 rpki-in acc
      red conn
      exit

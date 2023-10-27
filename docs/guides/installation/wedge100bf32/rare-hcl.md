@@ -1,4 +1,4 @@
-# ** RARE P4 TOFINO Hardware Compatibility List **
+# **RARE P4 TOFINO Hardware Compatibility List**
 
 RARE ONIE image can be installated on multiple TOFINO based P4 switch models. The following section describes RARE installation on Wedge 100BF-32X. However, keep in mind that the image is compatible with multiple TOFINO based hardware models.
 

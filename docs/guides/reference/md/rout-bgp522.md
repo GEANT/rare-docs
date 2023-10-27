@@ -30,7 +30,7 @@
      local-as 1
      router-id 4.4.4.1
      neigh 1.1.1.2 remote-as 2
-     neigh 1.1.1.2 role prov
+     neigh 1.1.1.2 leak-role prov
      red conn
      exit
     router bgp6 1
@@ -40,7 +40,7 @@
      local-as 1
      router-id 6.6.6.1
      neigh 1234:1::2 remote-as 2
-     neigh 1234:1::2 role prov
+     neigh 1234:1::2 leak-role prov
      red conn
      exit
     ```
@@ -74,9 +74,9 @@
      local-as 2
      router-id 4.4.4.2
      neigh 1.1.1.1 remote-as 1
-     neigh 1.1.1.1 role cust
+     neigh 1.1.1.1 leak-role cust
      neigh 1.1.1.6 remote-as 3
-     neigh 1.1.1.6 role ix-ser
+     neigh 1.1.1.6 leak-role ix-ser
      red conn
      exit
     router bgp6 1
@@ -86,9 +86,9 @@
      local-as 2
      router-id 6.6.6.2
      neigh 1234:1::1 remote-as 1
-     neigh 1234:1::1 role cust
+     neigh 1234:1::1 leak-role cust
      neigh 1234:2::2 remote-as 3
-     neigh 1234:2::2 role ix-ser
+     neigh 1234:2::2 leak-role ix-ser
      red conn
      exit
     ```
@@ -122,9 +122,9 @@
      local-as 3
      router-id 4.4.4.3
      neigh 1.1.1.5 remote-as 2
-     neigh 1.1.1.5 role ix-cli
+     neigh 1.1.1.5 leak-role ix-cli
      neigh 1.1.1.10 remote-as 4
-     neigh 1.1.1.10 role ix-cli
+     neigh 1.1.1.10 leak-role ix-cli
      red conn
      exit
     router bgp6 1
@@ -134,9 +134,9 @@
      local-as 3
      router-id 6.6.6.3
      neigh 1234:2::1 remote-as 2
-     neigh 1234:2::1 role ix-cli
+     neigh 1234:2::1 leak-role ix-cli
      neigh 1234:3::2 remote-as 4
-     neigh 1234:3::2 role ix-cli
+     neigh 1234:3::2 leak-role ix-cli
      red conn
      exit
     ```
@@ -165,7 +165,7 @@
      local-as 4
      router-id 4.4.4.4
      neigh 1.1.1.9 remote-as 3
-     neigh 1.1.1.9 role ix-ser
+     neigh 1.1.1.9 leak-role ix-ser
      red conn
      exit
     router bgp6 1
@@ -175,7 +175,7 @@
      local-as 4
      router-id 6.6.6.4
      neigh 1234:3::1 remote-as 3
-     neigh 1234:3::1 role ix-ser
+     neigh 1234:3::1 leak-role ix-ser
      red conn
      exit
     ```

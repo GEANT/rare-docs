@@ -1996,6 +1996,40 @@
     | [rout-bgp779](md/rout-bgp779.md) | :material-check: | unicast+vpns over ibgp rr with dynamic capability |
     | [rout-bgp780](md/rout-bgp780.md) | :material-check: | ebgp with pmtud |
     | [rout-bgp781](md/rout-bgp781.md) | :material-check: | ibgp with pmtud |
+    | [rout-bgp782](md/rout-bgp782.md) | :material-check: | bgp routemap filtering with validity |
+    | [rout-bgp783](md/rout-bgp783.md) | :material-check: | bgp routemap filtering with validity with soft-reconfig |
+    | [rout-bgp784](md/rout-bgp784.md) | :material-check: | bgp change in validity |
+    | [rout-bgp785](md/rout-bgp785.md) | :material-check: | bgp change in validity with soft-reconfig |
+    | [rout-bgp786](md/rout-bgp786.md) | :material-check: | bgp routepolicy filtering with validity |
+    | [rout-bgp787](md/rout-bgp787.md) | :material-check: | bgp routepolicy filtering with validity with soft-reconfig |
+    | [rout-bgp788](md/rout-bgp788.md) | :material-check: | bgp routemap filtering with leak-role |
+    | [rout-bgp789](md/rout-bgp789.md) | :material-check: | bgp routemap filtering with leak-role with soft-reconfig |
+    | [rout-bgp790](md/rout-bgp790.md) | :material-check: | bgp change in leak-role |
+    | [rout-bgp791](md/rout-bgp791.md) | :material-check: | bgp change in leak-role with soft-reconfig |
+    | [rout-bgp792](md/rout-bgp792.md) | :material-check: | bgp routepolicy filtering with leak-role |
+    | [rout-bgp793](md/rout-bgp793.md) | :material-check: | bgp routepolicy filtering with leak-role with soft-reconfig |
+    | [rout-bgp794](md/rout-bgp794.md) | :material-check: | bgp routemap filtering with aggregator |
+    | [rout-bgp795](md/rout-bgp795.md) | :material-check: | bgp routemap filtering with aggregator with soft-reconfig |
+    | [rout-bgp796](md/rout-bgp796.md) | :material-check: | bgp change in aggregator |
+    | [rout-bgp797](md/rout-bgp797.md) | :material-check: | bgp change in aggregator with soft-reconfig |
+    | [rout-bgp798](md/rout-bgp798.md) | :material-check: | bgp routepolicy filtering with aggregator |
+    | [rout-bgp799](md/rout-bgp799.md) | :material-check: | bgp routepolicy filtering with aggregator with soft-reconfig |
+    | [rout-bgp800](md/rout-bgp800.md) | :material-check: | l3evpns over ebgp |
+    | [rout-bgp801](md/rout-bgp801.md) | :material-check: | l3evpns over ibgp |
+    | [rout-bgp802](md/rout-bgp802.md) | :material-check: | l3evpns over ibgp rr |
+    | [rout-bgp803](md/rout-bgp803.md) | :material-check: | l3evpns over confed bgp |
+    | [rout-bgp804](md/rout-bgp804.md) | :material-check: | l3evpns over bgp route server |
+    | [rout-bgp805](md/rout-bgp805.md) | :material-check: | l3evpns over bgp with soft-reconfig |
+    | [rout-bgp806](md/rout-bgp806.md) | :material-check: | l3evpns over bgp additional path |
+    | [rout-bgp807](md/rout-bgp807.md) | :material-check: | l3evpns over bgp auto mesh tunnel |
+    | [rout-bgp808](md/rout-bgp808.md) | :material-check: | l3otherevpns over ebgp |
+    | [rout-bgp809](md/rout-bgp809.md) | :material-check: | l3eothervpns over ibgp |
+    | [rout-bgp810](md/rout-bgp810.md) | :material-check: | l3otherevpns over ibgp rr |
+    | [rout-bgp811](md/rout-bgp811.md) | :material-check: | l3otherevpns over confed bgp |
+    | [rout-bgp812](md/rout-bgp812.md) | :material-check: | l3otherevpns over bgp route server |
+    | [rout-bgp813](md/rout-bgp813.md) | :material-check: | l3otherevpns over bgp with soft-reconfig |
+    | [rout-bgp814](md/rout-bgp814.md) | :material-check: | l3otherevpns over bgp additional path |
+    | [rout-bgp815](md/rout-bgp815.md) | :material-check: | l3otherevpns over bgp auto mesh tunnel |
     | [rout-eigrp01](md/rout-eigrp01.md) | :material-check: | eigrp point2point connection |
     | [rout-eigrp02](md/rout-eigrp02.md) | :material-check: | eigrp point2multipoint connection |
     | [rout-eigrp03](md/rout-eigrp03.md) | :material-check: | eigrp point2point chain |
