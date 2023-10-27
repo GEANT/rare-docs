@@ -19,7 +19,7 @@
      local-as 4
      router-id 4.4.4.4
      neigh 1.1.1.9 remote-as 3
-     neigh 1.1.1.9 role ix-ser
+     neigh 1.1.1.9 leak-role ix-ser
      red conn
      exit
     router bgp6 1
@@ -29,6 +29,6 @@
      local-as 4
      router-id 6.6.6.4
      neigh 1234:3::1 remote-as 3
-     neigh 1234:3::1 role ix-ser
+     neigh 1234:3::1 leak-role ix-ser
      red conn
      exit
