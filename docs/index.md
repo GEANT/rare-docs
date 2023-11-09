@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # **RARE** documentation home
 
 ## **Overview**

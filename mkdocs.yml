@@ -44,6 +44,8 @@ theme:
   name: 'material'
   custom_dir: docs/overrides
   features:
+    - navigation.top
+    - navigation.tabs
     - content.code.copy
   palette:
     # Light mode

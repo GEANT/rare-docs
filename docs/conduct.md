@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # **CODE OF CONDUCT**
 
 [**RARE**](https://wiki.geant.org/display/RARE/Home) is a Research & Education project running under [**GÉANT-5**](https://geant.org/projects/) project umbrella.  

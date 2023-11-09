@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # **License**
 
 **Copyright(2019) [GÉANT](https://www.geant.org/) [RARE project](https://wiki.geant.org/display/RARE)**

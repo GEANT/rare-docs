@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # **Contact us !**
 
 ## RARE mailing list

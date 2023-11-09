@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # **About**
 
 **RARE** is a **[GÉANT](https://www.geant.org)** project from the **[GÉANT-5 programme](https://geant.org/projects/)** (GN5-1)
