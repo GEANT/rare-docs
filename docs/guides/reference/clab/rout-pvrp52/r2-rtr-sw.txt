@@ -13,13 +13,13 @@
     router pvrp4 1
      vrf v1
      router 4.4.4.2
-     bier 256 10 0
+     bier 256 10 0 3
      red conn
      exit
     router pvrp6 1
      vrf v1
      router 6.6.6.2
-     bier 256 10 0
+     bier 256 10 0 3
      red conn
      exit
     int lo1
@@ -28,8 +28,8 @@
      ipv6 addr 4321::2 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
      router pvrp4 1 ena
      router pvrp6 1 ena
-     router pvrp4 1 bier 2
-     router pvrp6 1 bier 2
+     router pvrp4 1 bier 2 3
+     router pvrp6 1 bier 2 3
      exit
     int eth1
      vrf for v1

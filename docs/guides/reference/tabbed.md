@@ -975,6 +975,8 @@
     | [mpls-nsh11](md/mpls-nsh11.md) | :material-check: | nsh switch |
     | [mpls-nsh12](md/mpls-nsh12.md) | :material-check: | nsh ip |
     | [mpls-nsh13](md/mpls-nsh13.md) | :material-check: | nsh mix of ip and ethernet |
+    | [mpls-nsh14](md/mpls-nsh14.md) | :material-check: | nsh over ipv4 tunnel |
+    | [mpls-nsh15](md/mpls-nsh15.md) | :material-check: | nsh over ipv6 tunnel |
     | [mpls-polka01](md/mpls-polka01.md) | :material-check: | polka over ethernet |
     | [mpls-polka02](md/mpls-polka02.md) | :material-check: | polka over ethernet vlan |
     | [mpls-polka03](md/mpls-polka03.md) | :material-check: | polka over ethernet bridge |
@@ -2030,6 +2032,38 @@
     | [rout-bgp813](md/rout-bgp813.md) | :material-check: | l3otherevpns over bgp with soft-reconfig |
     | [rout-bgp814](md/rout-bgp814.md) | :material-check: | l3otherevpns over bgp additional path |
     | [rout-bgp815](md/rout-bgp815.md) | :material-check: | l3otherevpns over bgp auto mesh tunnel |
+    | [rout-bgp816](md/rout-bgp816.md) | :material-check: | l3evpns with default route |
+    | [rout-bgp817](md/rout-bgp817.md) | :material-check: | otherl3evpns with default route |
+    | [rout-bgp818](md/rout-bgp818.md) | :material-check: | bgp l3evpns change in metric |
+    | [rout-bgp819](md/rout-bgp819.md) | :material-check: | ibgp rr l3evpns prefix movement |
+    | [rout-bgp820](md/rout-bgp820.md) | :material-check: | bgp otherl3evpns change in metric |
+    | [rout-bgp821](md/rout-bgp821.md) | :material-check: | ibgp rr otherl3evpns prefix movement |
+    | [rout-bgp822](md/rout-bgp822.md) | :material-check: | ibgp rr l3evpns prefix withdraw |
+    | [rout-bgp823](md/rout-bgp823.md) | :material-check: | ibgp rr otherl3evpns prefix withdraw |
+    | [rout-bgp824](md/rout-bgp824.md) | :material-check: | l3evpns with ingress rtfilter |
+    | [rout-bgp825](md/rout-bgp825.md) | :material-check: | l3evpns with egress rtfilter |
+    | [rout-bgp826](md/rout-bgp826.md) | :material-check: | otherl3evpns with ingress rtfilter |
+    | [rout-bgp827](md/rout-bgp827.md) | :material-check: | otherl3evpns with egress rtfilter |
+    | [rout-bgp828](md/rout-bgp828.md) | :material-check: | unicast+l3evpns over ebgp with dynamic capability |
+    | [rout-bgp829](md/rout-bgp829.md) | :material-check: | unicast+l3evpns over ibgp with dynamic capability |
+    | [rout-bgp830](md/rout-bgp830.md) | :material-check: | unicast+l3evpns over confed bgp with dynamic capability |
+    | [rout-bgp831](md/rout-bgp831.md) | :material-check: | unicast+l3evpns over ibgp rr with dynamic capability |
+    | [rout-bgp832](md/rout-bgp832.md) | :material-check: | l3evpns ingress route filtering with routemap |
+    | [rout-bgp833](md/rout-bgp833.md) | :material-check: | l3evpns egress route filtering with routemap |
+    | [rout-bgp834](md/rout-bgp834.md) | :material-check: | l3evpns ingress route filtering with routemap with soft-reconfig |
+    | [rout-bgp835](md/rout-bgp835.md) | :material-check: | l3evpns egress route filtering with routemap with soft-reconfig |
+    | [rout-bgp836](md/rout-bgp836.md) | :material-check: | l3evpns ingress route filtering with routepolicy |
+    | [rout-bgp837](md/rout-bgp837.md) | :material-check: | l3evpns egress route filtering with routepolicy |
+    | [rout-bgp838](md/rout-bgp838.md) | :material-check: | l3evpns ingress route filtering with routepolicy with soft-reconfig |
+    | [rout-bgp839](md/rout-bgp839.md) | :material-check: | l3evpns egress route filtering with routepolicy with soft-reconfig |
+    | [rout-bgp840](md/rout-bgp840.md) | :material-check: | otherl3evpns ingress route filtering with routemap |
+    | [rout-bgp841](md/rout-bgp841.md) | :material-check: | otherl3evpns egress route filtering with routemap |
+    | [rout-bgp842](md/rout-bgp842.md) | :material-check: | otherl3evpns ingress route filtering with routemap with soft-reconfig |
+    | [rout-bgp843](md/rout-bgp843.md) | :material-check: | otherl3evpns egress route filtering with routemap with soft-reconfig |
+    | [rout-bgp844](md/rout-bgp844.md) | :material-check: | otherl3evpns ingress route filtering with routepolicy |
+    | [rout-bgp845](md/rout-bgp845.md) | :material-check: | otherl3evpns egress route filtering with routepolicy |
+    | [rout-bgp846](md/rout-bgp846.md) | :material-check: | otherl3evpns ingress route filtering with routepolicy with soft-reconfig |
+    | [rout-bgp847](md/rout-bgp847.md) | :material-check: | otherl3evpns egress route filtering with routepolicy with soft-reconfig |
     | [rout-eigrp01](md/rout-eigrp01.md) | :material-check: | eigrp point2point connection |
     | [rout-eigrp02](md/rout-eigrp02.md) | :material-check: | eigrp point2multipoint connection |
     | [rout-eigrp03](md/rout-eigrp03.md) | :material-check: | eigrp point2point chain |

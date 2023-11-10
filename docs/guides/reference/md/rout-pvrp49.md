@@ -24,13 +24,13 @@
     router pvrp4 1
      vrf v1
      router 4.4.4.1
-     bier 256 10 1
+     bier 256 10 1 3
      red conn
      exit
     router pvrp6 1
      vrf v1
      router 6.6.6.1
-     bier 256 10 1
+     bier 256 10 1 3
      red conn
      exit
     int lo1
@@ -88,13 +88,13 @@
     router pvrp4 1
      vrf v1
      router 4.4.4.2
-     bier 256 10 2
+     bier 256 10 2 3
      red conn
      exit
     router pvrp6 1
      vrf v1
      router 6.6.6.2
-     bier 256 10 2
+     bier 256 10 2 #
      red conn
      exit
     int lo1
@@ -142,13 +142,13 @@
     router pvrp4 1
      vrf v1
      router 4.4.4.3
-     bier 256 10 3
+     bier 256 10 3 3
      red conn
      exit
     router pvrp6 1
      vrf v1
      router 6.6.6.3
-     bier 256 10 3
+     bier 256 10 3 3
      red conn
      exit
     int lo1

@@ -1,0 +1,17 @@
+    hostname r2
+    vrf def v1
+     rd 1:1
+     exit
+    int eth1
+     nsh ena
+     nsh xconn 2 255
+     exit
+    int ser1
+     vrf for v1
+     ipv4 addr 2.2.2.1 255.255.255.0
+     ipv6 addr 2222::1 ffff:ffff::
+     ipv4 nsh ena
+     ipv6 nsh ena
+     exit
+    nsh 2 255 tunnel v1 ser1 2222::2
+    nsh 3 254 int eth1 0000.1111.2222 rawpack keephdr

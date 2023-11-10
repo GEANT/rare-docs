@@ -24,13 +24,13 @@
     router lsrp4 1
      vrf v1
      router 4.4.4.1
-     bier 256 10 0
+     bier 256 10 0 3
      red conn
      exit
     router lsrp6 1
      vrf v1
      router 6.6.6.1
-     bier 256 10 0
+     bier 256 10 0 3
      red conn
      exit
     int lo1
@@ -39,8 +39,8 @@
      ipv6 addr 4321::1 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
      router lsrp4 1 ena
      router lsrp6 1 ena
-     router lsrp4 1 bier 1
-     router lsrp6 1 bier 1
+     router lsrp4 1 bier 1 3
+     router lsrp6 1 bier 1 3
      exit
     int eth1
      vrf for v1
@@ -92,13 +92,13 @@
     router lsrp4 1
      vrf v1
      router 4.4.4.2
-     bier 256 10 0
+     bier 256 10 0 3
      red conn
      exit
     router lsrp6 1
      vrf v1
      router 6.6.6.2
-     bier 256 10 0
+     bier 256 10 0 3
      red conn
      exit
     int lo1
@@ -107,8 +107,8 @@
      ipv6 addr 4321::2 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
      router lsrp4 1 ena
      router lsrp6 1 ena
-     router lsrp4 1 bier 2
-     router lsrp6 1 bier 2
+     router lsrp4 1 bier 2 3
+     router lsrp6 1 bier 2 3
      exit
     int eth1
      vrf for v1
@@ -150,13 +150,13 @@
     router lsrp4 1
      vrf v1
      router 4.4.4.3
-     bier 256 10 0
+     bier 256 10 0 3
      red conn
      exit
     router lsrp6 1
      vrf v1
      router 6.6.6.3
-     bier 256 10 0
+     bier 256 10 0 3
      red conn
      exit
     int lo1
@@ -165,8 +165,8 @@
      ipv6 addr 4321::3 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
      router lsrp4 1 ena
      router lsrp6 1 ena
-     router lsrp4 1 bier 3
-     router lsrp6 1 bier 3
+     router lsrp4 1 bier 3 3
+     router lsrp6 1 bier 3 3
      exit
     int eth1
      vrf for v1

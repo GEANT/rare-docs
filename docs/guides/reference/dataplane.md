@@ -89,6 +89,14 @@
     | [p4lang-acl80](md/p4lang-acl80.md) | :material-check: | p4lang: l2tp interface loose verify source |
     | [p4lang-acl81](md/p4lang-acl81.md) | :material-check: | p4lang: ingress gtp access list |
     | [p4lang-acl82](md/p4lang-acl82.md) | :material-check: | p4lang: egress gtp access list |
+    | [p4lang-acl83](md/p4lang-acl83.md) | :material-check: | p4lang: ingress l2tp3 access list |
+    | [p4lang-acl84](md/p4lang-acl84.md) | :material-check: | p4lang: egress l2tp3 access list |
+    | [p4lang-acl85](md/p4lang-acl85.md) | :material-check: | p4lang: ingress vlan l2tp3 access list |
+    | [p4lang-acl86](md/p4lang-acl86.md) | :material-check: | p4lang: egress vlan l2tp3 access list |
+    | [p4lang-acl87](md/p4lang-acl87.md) | :material-check: | p4lang: l2tp3 interface inspection with ingress drop |
+    | [p4lang-acl88](md/p4lang-acl88.md) | :material-check: | p4lang: l2tp3 interface inspection with egress drop |
+    | [p4lang-acl89](md/p4lang-acl89.md) | :material-check: | p4lang: l2tp3 interface verify source |
+    | [p4lang-acl90](md/p4lang-acl90.md) | :material-check: | p4lang: l2tp3 interface loose verify source |
     | [p4lang-crypt001](md/p4lang-crypt001.md) | :material-check: | p4lang: macsec with des |
     | [p4lang-crypt002](md/p4lang-crypt002.md) | :material-check: | p4lang: macsec with 3des |
     | [p4lang-crypt003](md/p4lang-crypt003.md) | :material-check: | p4lang: macsec with aes128cbc |
@@ -197,6 +205,8 @@
     | [p4lang-crypt106](md/p4lang-crypt106.md) | :material-check: | p4lang: sgt egress access list |
     | [p4lang-crypt107](md/p4lang-crypt107.md) | :material-check: | p4lang: sgt vlan ingress access list |
     | [p4lang-crypt108](md/p4lang-crypt108.md) | :material-check: | p4lang: sgt vlan egress access list |
+    | [p4lang-crypt109](md/p4lang-crypt109.md) | :material-check: | p4lang: macsec over l2tp3 |
+    | [p4lang-crypt110](md/p4lang-crypt110.md) | :material-check: | p4lang: sgt over l2tp3 |
     | [p4lang-packo01](md/p4lang-packo01.md) | :material-check: | p4lang: packout on port |
     | [p4lang-packo02](md/p4lang-packo02.md) | :material-check: | p4lang: packout on vlan port |
     | [p4lang-rout001](md/p4lang-rout001.md) | :material-check: | p4lang: routing |
@@ -441,3 +451,35 @@
     | [p4lang-rout240](md/p4lang-rout240.md) | :material-check: | p4lang: fib filtering with routepolicy |
     | [p4lang-rout241](md/p4lang-rout241.md) | :material-check: | p4lang: routing with fib compression |
     | [p4lang-rout242](md/p4lang-rout242.md) | :material-check: | p4lang: mpls with fib compression |
+    | [p4lang-rout243](md/p4lang-rout243.md) | :material-check: | p4lang: l2tp3 routing over ipv4 |
+    | [p4lang-rout244](md/p4lang-rout244.md) | :material-check: | p4lang: l2tp3 routing over ipv6 |
+    | [p4lang-rout245](md/p4lang-rout245.md) | :material-check: | p4lang: l2tp3 server routing |
+    | [p4lang-rout246](md/p4lang-rout246.md) | :material-check: | p4lang: vlan l2tp3 server routing |
+    | [p4lang-rout247](md/p4lang-rout247.md) | :material-check: | p4lang: l2tp3 server mpls |
+    | [p4lang-rout248](md/p4lang-rout248.md) | :material-check: | p4lang: vlan l2tp3 server mpls |
+    | [p4lang-rout249](md/p4lang-rout249.md) | :material-check: | p4lang: mldp core over l2tp3 |
+    | [p4lang-rout250](md/p4lang-rout250.md) | :material-check: | p4lang: bier core over l2tp3 |
+    | [p4lang-rout251](md/p4lang-rout251.md) | :material-check: | p4lang: l2tp3 mpls pop |
+    | [p4lang-rout252](md/p4lang-rout252.md) | :material-check: | p4lang: l2tp3 mpls push |
+    | [p4lang-rout253](md/p4lang-rout253.md) | :material-check: | p4lang: l2vpn over l2tp3 mpls |
+    | [p4lang-rout254](md/p4lang-rout254.md) | :material-check: | p4lang: l3vpn over l2tp3 mpls |
+    | [p4lang-rout255](md/p4lang-rout255.md) | :material-check: | p4lang: l2tp3 routing over ipv4 loopback |
+    | [p4lang-rout256](md/p4lang-rout256.md) | :material-check: | p4lang: l2tp3 routing over ipv6 loopback |
+    | [p4lang-rout257](md/p4lang-rout257.md) | :material-check: | p4lang: l2tp3 routing over vlan |
+    | [p4lang-rout258](md/p4lang-rout258.md) | :material-check: | p4lang: l2tp3 routing over bundle |
+    | [p4lang-rout259](md/p4lang-rout259.md) | :material-check: | p4lang: l2tp3 mpls over ipv4 |
+    | [p4lang-rout260](md/p4lang-rout260.md) | :material-check: | p4lang: multilink l2tp3 routing over ipv4 |
+    | [p4lang-rout261](md/p4lang-rout261.md) | :material-check: | p4lang: multilink l2tp3 routing over ipv6 |
+    | [p4lang-rout262](md/p4lang-rout262.md) | :material-check: | p4lang: multilink l2tp3 routing over vlan |
+    | [p4lang-rout263](md/p4lang-rout263.md) | :material-check: | p4lang: multilink l2tp3 mpls over ipv4 |
+    | [p4lang-rout264](md/p4lang-rout264.md) | :material-check: | p4lang: multilink l2tp3 mpls over ipv6 |
+    | [p4lang-rout265](md/p4lang-rout265.md) | :material-check: | p4lang: multilink l2tp3 mpls over vlan |
+    | [p4lang-rout266](md/p4lang-rout266.md) | :material-check: | p4lang: multilink l2tp3 routing over bundle |
+    | [p4lang-rout267](md/p4lang-rout267.md) | :material-check: | p4lang: multilink l2tp3 mpls over bundle |
+    | [p4lang-rout268](md/p4lang-rout268.md) | :material-check: | p4lang: l2tp3 mpls over ipv6 |
+    | [p4lang-rout269](md/p4lang-rout269.md) | :material-check: | p4lang: l2tp3 mpls over ipv4 loopback |
+    | [p4lang-rout270](md/p4lang-rout270.md) | :material-check: | p4lang: l2tp3 mpls over ipv6 loopback |
+    | [p4lang-rout271](md/p4lang-rout271.md) | :material-check: | p4lang: l2tp3 mpls over vlan |
+    | [p4lang-rout272](md/p4lang-rout272.md) | :material-check: | p4lang: l2tp3 mpls over bundle |
+    | [p4lang-rout273](md/p4lang-rout273.md) | :material-check: | p4lang: bridging over l2tp3 |
+    | [p4lang-rout274](md/p4lang-rout274.md) | :material-check: | p4lang: bridging over l2tp3 vlan |
