@@ -36,7 +36,7 @@
      vrf v1
      no safe-ebgp
      local-as 2
-     bier 256 10 2
+     bier 256 10 2 3
      router-id 4.4.4.2
      neigh 1.1.1.1 remote-as 1
      neigh 1.1.1.1 bier
@@ -48,7 +48,7 @@
      vrf v1
      no safe-ebgp
      local-as 2
-     bier 256 10 2
+     bier 256 10 2 3
      router-id 6.6.6.2
      neigh 1234:1::1 remote-as 1
      neigh 1234:1::1 bier
