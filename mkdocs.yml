@@ -25,6 +25,7 @@ nav:
       - MPLS forwarding core: 'guides/getting-started/005-mpls.md'
       - iBGP: 'guides/getting-started/006-ibgp.md'
       - Polka: 'guides/getting-started/007-polka.md'
+      - Traffic mitigation: 'guides/recipes/flowspec.md'
   - Code of conduct: conduct.md
   - License: license.md
   - Contacts: contacts.md
