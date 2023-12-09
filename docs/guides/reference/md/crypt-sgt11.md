@@ -1,4 +1,4 @@
-# Example: sgt tunnel encapsulation
+# Example: sgt gre encapsulation
 
 === "Topology"
 

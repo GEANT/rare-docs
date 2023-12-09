@@ -1,4 +1,4 @@
-# Example: macsec over tunnel
+# Example: macsec over gre
 
 === "Topology"
 
