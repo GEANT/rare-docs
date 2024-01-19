@@ -14,7 +14,7 @@
      vrf v1
      net 48.4444.0000.1111.00
      traffeng 2.2.2.1
-     bier 10
+     bier 256 10
      is-type level2
      both bier
      red conn
@@ -23,7 +23,7 @@
      vrf v1
      net 48.6666.0000.1111.00
      traffeng 6.6.6.1
-     bier 10
+     bier 256 10
      is-type level2
      both bier
      red conn
