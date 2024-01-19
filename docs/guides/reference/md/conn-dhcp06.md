@@ -18,11 +18,6 @@
      ipv4 addr 1.1.1.1 255.255.255.0
      ipv6 addr 1234::1 ffff::
      ipv6 prefix-suppress
-     exit
-    int lo0
-     vrf for v1
-     ipv4 addr 4.4.4.4 255.255.255.255
-     ipv6 addr 4444::4 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
      dhcp4 enable
      dhcp4 pool 1.1.1.2 1.1.1.199
      dhcp4 gateway 1.1.1.1
@@ -30,6 +25,11 @@
      dhcp6 enable
      dhcp6 netmask ffff:ffff:ffff:ffff::
      dhcp6 gateway 1234::1
+     exit
+    int lo0
+     vrf for v1
+     ipv4 addr 4.4.4.4 255.255.255.255
+     ipv6 addr 4444::4 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
      exit
     ```
 

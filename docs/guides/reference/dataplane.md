@@ -217,8 +217,14 @@
     | [p4lang-crypt110](md/p4lang-crypt110.md) | :material-check: | p4lang: sgt over l2tp3 |
     | [p4lang-crypt111](md/p4lang-crypt111.md) | :material-check: | p4lang: macsec over tmux |
     | [p4lang-crypt112](md/p4lang-crypt112.md) | :material-check: | p4lang: sgt over tmux |
-    | [p4lang-packo01](md/p4lang-packo01.md) | :material-check: | p4lang: packout on port |
-    | [p4lang-packo02](md/p4lang-packo02.md) | :material-check: | p4lang: packout on vlan port |
+    | [p4lang-crypt113](md/p4lang-crypt113.md) | :material-check: | p4lang: packout on port |
+    | [p4lang-crypt114](md/p4lang-crypt114.md) | :material-check: | p4lang: packout on vlan port |
+    | [p4lang-crypt115](md/p4lang-crypt115.md) | :material-check: | p4lang: packout on macsec port |
+    | [p4lang-crypt116](md/p4lang-crypt116.md) | :material-check: | p4lang: packout on macsec vlan port |
+    | [p4lang-crypt117](md/p4lang-crypt117.md) | :material-check: | p4lang: ipsec with packout |
+    | [p4lang-crypt118](md/p4lang-crypt118.md) | :material-check: | p4lang: openvpn with packout |
+    | [p4lang-crypt119](md/p4lang-crypt119.md) | :material-check: | p4lang: wireguard with packout |
+    | [p4lang-crypt120](md/p4lang-crypt120.md) | :material-check: | p4lang: gre with packout |
     | [p4lang-rout001](md/p4lang-rout001.md) | :material-check: | p4lang: routing |
     | [p4lang-rout002](md/p4lang-rout002.md) | :material-check: | p4lang: bridging |
     | [p4lang-rout003](md/p4lang-rout003.md) | :material-check: | p4lang: mpls core |

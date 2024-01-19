@@ -2078,6 +2078,12 @@
     | [rout-bgp845](md/rout-bgp845.md) | :material-check: | otherl3evpns egress route filtering with routepolicy |
     | [rout-bgp846](md/rout-bgp846.md) | :material-check: | otherl3evpns ingress route filtering with routepolicy with soft-reconfig |
     | [rout-bgp847](md/rout-bgp847.md) | :material-check: | otherl3evpns egress route filtering with routepolicy with soft-reconfig |
+    | [rout-bgp848](md/rout-bgp848.md) | :material-check: | unicast+mtree over bgp |
+    | [rout-bgp849](md/rout-bgp849.md) | :material-check: | unicast+mtree over bgp with soft-reconfig |
+    | [rout-bgp850](md/rout-bgp850.md) | :material-check: | unicast+mtree over bgp with additional path |
+    | [rout-bgp851](md/rout-bgp851.md) | :material-check: | unicast+othermtree over bgp |
+    | [rout-bgp852](md/rout-bgp852.md) | :material-check: | unicast+othermtree over bgp with soft-reconfig |
+    | [rout-bgp853](md/rout-bgp853.md) | :material-check: | unicast+othermtree over bgp with additional path |
     | [rout-eigrp01](md/rout-eigrp01.md) | :material-check: | eigrp point2point connection |
     | [rout-eigrp02](md/rout-eigrp02.md) | :material-check: | eigrp point2multipoint connection |
     | [rout-eigrp03](md/rout-eigrp03.md) | :material-check: | eigrp point2point chain |

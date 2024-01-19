@@ -244,6 +244,8 @@
     | [intop8-bgp12](md/intop8-bgp12.md) | :material-check: | interop8: bgp extended community |
     | [intop8-bgp13](md/intop8-bgp13.md) | :material-check: | interop8: bgp large community |
     | [intop8-bgp14](md/intop8-bgp14.md) | :material-check: | interop8: bgp with php labels |
+    | [intop8-bgp15](md/intop8-bgp15.md) | :material-check: | interop8: ebgp peer role |
+    | [intop8-bgp16](md/intop8-bgp16.md) | :material-check: | interop8: ebgp ix role |
     | [intop8-eigrp01](md/intop8-eigrp01.md) | :material-check: | interop8: eigrp |
     | [intop8-eth01](md/intop8-eth01.md) | :material-check: | interop8: fragmentation and reassembly |
     | [intop8-eth02](md/intop8-eth02.md) | :material-check: | interop8: verify source |

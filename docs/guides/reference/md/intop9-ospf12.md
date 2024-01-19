@@ -25,7 +25,7 @@
      vrf v1
      router 4.4.4.1
      traffeng 2.2.2.1
-     bier 10
+     bier 256 10
      area 0 ena
      area 0 bier
      red conn
@@ -34,7 +34,7 @@
      vrf v1
      router 6.6.6.1
      traffeng 6.6.6.1
-     bier 10
+     bier 256 10
      area 0 ena
      area 0 bier
      red conn
@@ -133,7 +133,7 @@
      vrf v1
      router 4.4.4.3
      traffeng 2.2.2.3
-     bier 10
+     bier 256 10
      area 0 ena
      area 0 bier
      red conn
@@ -142,7 +142,7 @@
      vrf v1
      router 6.6.6.3
      traffeng 6.6.6.3
-     bier 10
+     bier 256 10
      area 0 ena
      area 0 bier
      red conn

@@ -1119,6 +1119,8 @@
 | [intop8-bgp12](md/intop8-bgp12.md) | :material-check: | interop8: bgp extended community |
 | [intop8-bgp13](md/intop8-bgp13.md) | :material-check: | interop8: bgp large community |
 | [intop8-bgp14](md/intop8-bgp14.md) | :material-check: | interop8: bgp with php labels |
+| [intop8-bgp15](md/intop8-bgp15.md) | :material-check: | interop8: ebgp peer role |
+| [intop8-bgp16](md/intop8-bgp16.md) | :material-check: | interop8: ebgp ix role |
 | [intop8-eigrp01](md/intop8-eigrp01.md) | :material-check: | interop8: eigrp |
 | [intop8-eth01](md/intop8-eth01.md) | :material-check: | interop8: fragmentation and reassembly |
 | [intop8-eth02](md/intop8-eth02.md) | :material-check: | interop8: verify source |
@@ -1613,8 +1615,14 @@
 | [p4lang-crypt110](md/p4lang-crypt110.md) | :material-check: | p4lang: sgt over l2tp3 |
 | [p4lang-crypt111](md/p4lang-crypt111.md) | :material-check: | p4lang: macsec over tmux |
 | [p4lang-crypt112](md/p4lang-crypt112.md) | :material-check: | p4lang: sgt over tmux |
-| [p4lang-packo01](md/p4lang-packo01.md) | :material-check: | p4lang: packout on port |
-| [p4lang-packo02](md/p4lang-packo02.md) | :material-check: | p4lang: packout on vlan port |
+| [p4lang-crypt113](md/p4lang-crypt113.md) | :material-check: | p4lang: packout on port |
+| [p4lang-crypt114](md/p4lang-crypt114.md) | :material-check: | p4lang: packout on vlan port |
+| [p4lang-crypt115](md/p4lang-crypt115.md) | :material-check: | p4lang: packout on macsec port |
+| [p4lang-crypt116](md/p4lang-crypt116.md) | :material-check: | p4lang: packout on macsec vlan port |
+| [p4lang-crypt117](md/p4lang-crypt117.md) | :material-check: | p4lang: ipsec with packout |
+| [p4lang-crypt118](md/p4lang-crypt118.md) | :material-check: | p4lang: openvpn with packout |
+| [p4lang-crypt119](md/p4lang-crypt119.md) | :material-check: | p4lang: wireguard with packout |
+| [p4lang-crypt120](md/p4lang-crypt120.md) | :material-check: | p4lang: gre with packout |
 | [p4lang-rout001](md/p4lang-rout001.md) | :material-check: | p4lang: routing |
 | [p4lang-rout002](md/p4lang-rout002.md) | :material-check: | p4lang: bridging |
 | [p4lang-rout003](md/p4lang-rout003.md) | :material-check: | p4lang: mpls core |
@@ -2886,6 +2894,12 @@
 | [rout-bgp845](md/rout-bgp845.md) | :material-check: | otherl3evpns egress route filtering with routepolicy |
 | [rout-bgp846](md/rout-bgp846.md) | :material-check: | otherl3evpns ingress route filtering with routepolicy with soft-reconfig |
 | [rout-bgp847](md/rout-bgp847.md) | :material-check: | otherl3evpns egress route filtering with routepolicy with soft-reconfig |
+| [rout-bgp848](md/rout-bgp848.md) | :material-check: | unicast+mtree over bgp |
+| [rout-bgp849](md/rout-bgp849.md) | :material-check: | unicast+mtree over bgp with soft-reconfig |
+| [rout-bgp850](md/rout-bgp850.md) | :material-check: | unicast+mtree over bgp with additional path |
+| [rout-bgp851](md/rout-bgp851.md) | :material-check: | unicast+othermtree over bgp |
+| [rout-bgp852](md/rout-bgp852.md) | :material-check: | unicast+othermtree over bgp with soft-reconfig |
+| [rout-bgp853](md/rout-bgp853.md) | :material-check: | unicast+othermtree over bgp with additional path |
 | [rout-eigrp01](md/rout-eigrp01.md) | :material-check: | eigrp point2point connection |
 | [rout-eigrp02](md/rout-eigrp02.md) | :material-check: | eigrp point2multipoint connection |
 | [rout-eigrp03](md/rout-eigrp03.md) | :material-check: | eigrp point2point chain |
